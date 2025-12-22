@@ -110,7 +110,7 @@ function FreelancerProfilePanel() {
               </div>
 
               <div className="flex flex-row">
-                <p className="font-bold">{profile.hourlyRate} $ / hour</p>
+                <p className="font-bold">$ {profile.hourlyRate} / hour</p>
                 <span className="mx-3">•</span>
                 <FiMapPin className="mt-1" />
                 <p className="ml-1 text-gray-700 ">{profile.country}</p>

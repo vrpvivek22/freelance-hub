@@ -80,7 +80,7 @@ function FreelancerProjectSearch() {
                     <div className="flex flex-row space-x-1">
                       <p className="text-[17px] ">
                         Budget -{" "}
-                        <span className="font-semibold">${p.budget}</span>
+                        <span className="font-semibold">$ {p.budget}</span>
                       </p>
                     </div>
                   </div>
