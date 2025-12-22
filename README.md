@@ -36,6 +36,16 @@
 
 ---
 
+## Project Overview
+
+### Freelancer Profile
+
+![Demo-1](./frontend/src/assets/demo-1.png)
+
+### Projects and Sidebar
+
+![Demo-2](./frontend/src//assets//demo-2.png)
+
 ## 🧰 Tech Stack
 
 ### 🎨 Frontend

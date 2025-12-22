@@ -83,7 +83,6 @@ function FreelancerDashboard() {
                   />
                 </button>
               </div>
-
               <div
                 className={`
           fixed top-0 right-0 h-full w-72 bg-gradient-to-br from-gray-200 via-blue-200 to-indigo-200 text-black px-5 py-16
