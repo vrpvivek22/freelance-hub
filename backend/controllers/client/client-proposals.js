@@ -1,8 +1,8 @@
-const Bid = require("../../models/freelancer-model/freelancer-bid");
-const Profile = require("../../models/freelancer-model/freelancer-profile");
-const FreelancerImage = require("../../models/freelancer-model/freelancer-image");
+import Bid from "../../models/freelancer-model/freelancer-bid.js";
+import Profile from "../../models/freelancer-model/freelancer-profile.js";
+import FreelancerImage from "../../models/freelancer-model/freelancer-image.js";
 
-const getProposals = async (req, res) => {
+export const getProposals = async (req, res) => {
   const projectId = req.params.projectId;
 
   const proposals = await Bid.find({ projectId })
@@ -65,5 +65,3 @@ const getProposals = async (req, res) => {
     proposals: formattedProposals,
   });
 };
-
-module.exports = getProposals;

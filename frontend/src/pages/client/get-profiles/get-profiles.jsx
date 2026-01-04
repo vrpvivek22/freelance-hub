@@ -13,14 +13,20 @@ function ClientProfileSearch() {
 
   const [profiles, setProfiles] = useState([]);
   const [projects, setProjects] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [profilesLoading, setProfilesLoading] = useState(true);
+  const [projectsLoading, setProjectsLoading] = useState(true);
   const navigate = useNavigate();
 
   useEffect(() => {
     async function load() {
-      const res = await getClientProjectApi();
-      setProjects(res.projects);
-      setLoading(false);
+      try {
+        const res = await getClientProjectApi();
+        setProjects(res.projects);
+      } catch (err) {
+        console.log("failed to fetch projects", err);
+      } finally {
+        setProjectsLoading(false);
+      }
     }
     load();
   }, []);
@@ -32,20 +38,20 @@ function ClientProfileSearch() {
   useEffect(() => {
     async function load() {
       try {
-        setLoading(true);
+        setProfilesLoading(true);
         const res = await getClientProfileSearch(searchQuery);
         setProfiles(res.profiles || []);
       } catch (err) {
         console.error("Failed to fetch profiles:", err);
         setProfiles([]);
       } finally {
-        setLoading(false);
+        setProfilesLoading(false);
       }
     }
     load();
   }, [searchQuery]);
 
-  if (loading)
+  if (profilesLoading || projectsLoading)
     return (
       <p className="flex mt-65 justify-center font-bold text-gray-700 text-3xl">
         Please wait....

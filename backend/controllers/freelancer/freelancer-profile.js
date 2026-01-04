@@ -1,13 +1,13 @@
-const Profile = require("../../models/freelancer-model/freelancer-profile");
-const { StatusCodes } = require("http-status-codes");
-const { BadRequestError, NotFoundError } = require("../../errors");
-const FreelancerImage = require("../../models/freelancer-model/freelancer-image");
-const {
+import Profile from "../../models/freelancer-model/freelancer-profile.js";
+import { StatusCodes } from "http-status-codes";
+import { BadRequestError, NotFoundError } from "../../errors/index.js";
+import FreelancerImage from "../../models/freelancer-model/freelancer-image.js";
+import {
   addProfileSchema,
   updateProfileSchema,
-} = require("../../validation/freelancer/profile-validation");
+} from "../../validation/freelancer/profile-validation.js";
 
-const getProfile = async (req, res) => {
+export const getProfile = async (req, res) => {
   const { userId } = req.user;
 
   const profile = await Profile.findOne({
@@ -28,7 +28,7 @@ const getProfile = async (req, res) => {
   res.status(StatusCodes.OK).json({ profile });
 };
 
-const getProfileByUserId = async (req, res) => {
+export const getProfileByUserId = async (req, res) => {
   try {
     const { userId } = req.params;
 
@@ -47,7 +47,7 @@ const getProfileByUserId = async (req, res) => {
   }
 };
 
-const addProfile = async (req, res) => {
+export const addProfile = async (req, res) => {
   const { error } = addProfileSchema.validate(req.body);
 
   if (error) {
@@ -63,7 +63,7 @@ const addProfile = async (req, res) => {
   });
 };
 
-const updateProfile = async (req, res) => {
+export const updateProfile = async (req, res) => {
   const { userId } = req.user;
 
   const { error } = updateProfileSchema.validate(req.body);
@@ -85,11 +85,4 @@ const updateProfile = async (req, res) => {
   res
     .status(StatusCodes.OK)
     .json({ message: "profile updated successfully", profile });
-};
-
-module.exports = {
-  addProfile,
-  updateProfile,
-  getProfile,
-  getProfileByUserId,
 };

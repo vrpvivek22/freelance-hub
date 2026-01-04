@@ -1,5 +1,5 @@
-const multer = require("multer");
-const path = require("path");
+import multer from "multer";
+import path from "path";
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
@@ -21,7 +21,7 @@ const checkFileFilter = (req, file, cb) => {
   }
 };
 
-module.exports = multer({
+export default multer({
   storage: storage,
   fileFilter: checkFileFilter,
   limits: {

@@ -1,43 +1,57 @@
-require("dotenv").config();
-const express = require("express");
-const helmet = require("helmet");
-const cors = require("cors");
-const rateLimit = require("express-rate-limit");
+import express from "express";
+import helmet from "helmet";
+import cors from "cors";
+import rateLimit from "express-rate-limit";
 
 const app = express();
-
-// database connection
-const connectDB = require("./database/connect");
 
 // Routers
 
 // Auth Router
-const AuthRouter = require("./routes/auth-route");
+import AuthRouter from "./routes/auth-route.js";
 
 // client Routers
-const clientDetailsRouter = require("./routes/client/client-details");
-const clientProjectRouter = require("./routes/client/client-project");
-const clientSearchRouter = require("./routes/client/client-search");
-const clientProposalsRouter = require("./routes/client/client-proposals");
-const clientBidAcceptRouter = require("./routes/client/bid-status/accepted");
-const clientBidCancelRouter = require("./routes/client/bid-status/cancelled");
-const projectCompleteRouter = require("./routes/client/complete-project");
-const clientImageRouter = require("./routes/client/client-image");
-const clientReviewRouter = require("./routes/client/client-review");
-const clientInviteRouter = require("./routes/client/client-invites");
+import clientDetailsRouter from "./routes/client/client-details.js";
+//const clientProjectRouter = require("./routes/client/client-project");
+import clientProjectRouter from "./routes/client/client-project.js";
+// const clientSearchRouter = require("./routes/client/client-search");
+import clientSearchRouter from "./routes/client/client-search.js";
+// const clientProposalsRouter = require("./routes/client/client-proposals");
+import clientProposalsRouter from "./routes/client/client-proposals.js";
+// const clientBidAcceptRouter = require("./routes/client/bid-status/accepted");
+import clientBidAcceptRouter from "./routes/client/bid-status/accepted.js";
+// const clientBidCancelRouter = require("./routes/client/bid-status/cancelled");
+import clientBidCancelRouter from "./routes/client/bid-status/cancelled.js";
+// const projectCompleteRouter = require("./routes/client/complete-project");
+import projectCompleteRouter from "./routes/client/complete-project.js";
+// const clientImageRouter = require("./routes/client/client-image");
+import clientImageRouter from "./routes/client/client-image.js";
+// const clientReviewRouter = require("./routes/client/client-review");
+import clientReviewRouter from "./routes/client/client-review.js";
+// const clientInviteRouter = require("./routes/client/client-invites");
+import clientInviteRouter from "./routes/client/client-invites.js";
 
 // freelancer Routers
-const freelancerProfileRouter = require("./routes/freelancer/freelancer-profile");
-const freelancerSearchRouter = require("./routes/freelancer/freelancer-search");
-const freelancerProjectRouter = require("./routes/freelancer/freelancer-bid");
-const freelancerImageRouter = require("./routes/freelancer/freelancer-image");
-const freelancerReviewRouter = require("./routes/freelancer/freelancer-review");
-const freelancerInviteRouter = require("./routes/freelancer/freelancer-invites");
+// const freelancerProfileRouter = require("./routes/freelancer/freelancer-profile");
+import freelancerProfileRouter from "./routes/freelancer/freelancer-profile.js";
+// const freelancerSearchRouter = require("./routes/freelancer/freelancer-search");
+import freelancerSearchRouter from "./routes/freelancer/freelancer-search.js";
+// const freelancerProjectRouter = require("./routes/freelancer/freelancer-bid");
+import freelancerProjectRouter from "./routes/freelancer/freelancer-bid.js";
+// const freelancerImageRouter = require("./routes/freelancer/freelancer-image");
+import freelancerImageRouter from "./routes/freelancer/freelancer-image.js";
+// const freelancerReviewRouter = require("./routes/freelancer/freelancer-review");
+import freelancerReviewRouter from "./routes/freelancer/freelancer-review.js";
+// const freelancerInviteRouter = require("./routes/freelancer/freelancer-invites");
+import freelancerInviteRouter from "./routes/freelancer/freelancer-invites.js";
 
 // middlewares
-const authenticatedUser = require("./middlewares/authentication");
-const errorHandlerMiddleware = require("./middlewares/error-handler");
-const notFoundMiddleware = require("./middlewares/not-found");
+// const authenticatedUser = require("./middlewares/authentication");
+import authenticatedUser from "./middlewares/authentication.js";
+// const errorHandlerMiddleware = require("./middlewares/error-handler");
+import errorHandlerMiddleware from "./middlewares/error-handler.js";
+// const notFoundMiddleware = require("./middlewares/not-found");
+import notFoundMiddleware from "./middlewares/not-found.js";
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -97,17 +111,4 @@ app.use("/api/v1/freelancer", authenticatedUser, freelancerInviteRouter);
 app.use(notFoundMiddleware);
 app.use(errorHandlerMiddleware);
 
-const port = process.env.PORT || 5000;
-
-const start = async () => {
-  try {
-    await connectDB(process.env.MONGO_URI);
-    app.listen(port, () => {
-      console.log(`This server is running on port ${port}`);
-    });
-  } catch (error) {
-    console.log("Database connection failed:", error);
-  }
-};
-
-start();
+export default app;

@@ -1,8 +1,8 @@
-const express = require("express");
+import express from "express";
 const router = express.Router();
 
-const acceptBid = require("../../../controllers/client/bid-status/accepted");
+import acceptBid from "../../../controllers/client/bid-status/accepted.js";
 
 router.patch("/:bidId/accept", acceptBid);
 
-module.exports = router;
+export default router;

@@ -1,6 +1,6 @@
-const Joi = require("joi");
+import Joi from "joi";
 
-const addProjectSchema = Joi.object({
+export const addProjectSchema = Joi.object({
   projectTitle: Joi.string().required().messages({
     "string.empty": "Please enter Project Title",
     "any.required": "Project Title is required",
@@ -29,7 +29,7 @@ const addProjectSchema = Joi.object({
     "any.required": "request body is required",
   });
 
-const updateProjectSchema = Joi.object({
+export const updateProjectSchema = Joi.object({
   projectTitle: Joi.string().messages({
     "string.empty": "Please enter Project Title",
   }),
@@ -56,5 +56,3 @@ const updateProjectSchema = Joi.object({
     "object.min": "Provide atleast 1 key",
     "any.required": "request body is required",
   });
-
-module.exports = { addProjectSchema, updateProjectSchema };

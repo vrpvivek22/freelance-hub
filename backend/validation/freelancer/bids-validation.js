@@ -1,6 +1,6 @@
-const Joi = require("joi");
+import Joi from "joi";
 
-const bidSchema = Joi.object({
+export const bidSchema = Joi.object({
   bidAmount: Joi.number().required().messages({
     "number.empty": "Please enter the amount",
     "number.base": "Amount must be a number",
@@ -22,7 +22,7 @@ const bidSchema = Joi.object({
     "any.required": "request body is required",
   });
 
-const updateBidSchema = Joi.object({
+export const updateBidSchema = Joi.object({
   bidAmount: Joi.number().messages({
     "number.empty": "Please enter the amount",
     "number.base": "Amount must be a number",
@@ -49,5 +49,3 @@ const updateBidSchema = Joi.object({
     "object.min": "please provide atlease 1 key",
     "any.required": "request body is required",
   });
-
-module.exports = { bidSchema, updateBidSchema };

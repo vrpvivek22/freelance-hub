@@ -1,5 +1,4 @@
-// models/Bid.js
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
 const BidSchema = new mongoose.Schema(
   {
@@ -38,4 +37,4 @@ const BidSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-module.exports = mongoose.models.Bid || mongoose.model("Bid", BidSchema);
+export default mongoose.models.Bid || mongoose.model("Bid", BidSchema);

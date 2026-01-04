@@ -1,8 +1,8 @@
-const Review = require("../../models/review-model");
-const Client = require("../../models/client-model/client-details");
-const Details = require("../../models/client-model/client-details");
+import Review from "../../models/review-model.js";
+import Client from "../../models/client-model/client-details.js";
+import Details from "../../models/client-model/client-details.js";
 
-const FreelancerReview = async (req, res, next) => {
+export const FreelancerReview = async (req, res, next) => {
   try {
     const { clientId, projectId, rating, reviewText } = req.body;
     const freelancerId = req.user.userId;
@@ -42,7 +42,7 @@ const FreelancerReview = async (req, res, next) => {
   }
 };
 
-const getFreelancerReviews = async (req, res, next) => {
+export const getFreelancerReviews = async (req, res, next) => {
   try {
     const { freelancerId } = req.params;
 
@@ -72,5 +72,3 @@ const getFreelancerReviews = async (req, res, next) => {
     next(error);
   }
 };
-
-module.exports = { FreelancerReview, getFreelancerReviews };

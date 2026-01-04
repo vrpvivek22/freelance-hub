@@ -1,9 +1,9 @@
-const Details = require("../../models/client-model/client-details");
-const { StatusCodes } = require("http-status-codes");
-const { NotFoundError } = require("../../errors");
-const ClientImage = require("../../models/client-model/client-image");
+import Details from "../../models/client-model/client-details.js";
+import { StatusCodes } from "http-status-codes";
+import { NotFoundError } from "../../errors/index.js";
+import ClientImage from "../../models/client-model/client-image.js";
 
-const getDetails = async (req, res) => {
+export const getDetails = async (req, res) => {
   const { userId } = req.user;
 
   const details = await Details.findOne({ createdBy: userId });
@@ -22,7 +22,7 @@ const getDetails = async (req, res) => {
   res.status(StatusCodes.OK).json({ details });
 };
 
-const getDetailsByUserId = async (req, res) => {
+export const getDetailsByUserId = async (req, res) => {
   try {
     const { userId } = req.params;
 
@@ -41,7 +41,7 @@ const getDetailsByUserId = async (req, res) => {
   }
 };
 
-const addDetails = async (req, res) => {
+export const addDetails = async (req, res) => {
   req.body.createdBy = req.user.userId;
 
   const details = await Details.create(req.body);
@@ -50,7 +50,7 @@ const addDetails = async (req, res) => {
     .json({ message: "details added successfully", details });
 };
 
-const updateDetails = async (req, res) => {
+export const updateDetails = async (req, res) => {
   const { userId } = req.user;
 
   const details = await Details.findOneAndUpdate(
@@ -68,7 +68,7 @@ const updateDetails = async (req, res) => {
     .json({ message: "Details updated successfully", details });
 };
 
-const deleteDetails = async (req, res) => {
+export const deleteDetails = async (req, res) => {
   const { userId } = req.user;
 
   const details = await Details.findOneAndDelete({ createdBy: userId });
@@ -85,12 +85,4 @@ const deleteDetails = async (req, res) => {
     clientDetails,
     count: clientDetails.length,
   });
-};
-
-module.exports = {
-  getDetails,
-  addDetails,
-  updateDetails,
-  deleteDetails,
-  getDetailsByUserId,
 };

@@ -1,8 +1,8 @@
-const Profile = require("../../models/freelancer-model/freelancer-profile");
-const FreelancerImage = require("../../models/freelancer-model/freelancer-image");
-const { StatusCodes } = require("http-status-codes");
+import Profile from "../../models/freelancer-model/freelancer-profile.js";
+import FreelancerImage from "../../models/freelancer-model/freelancer-image.js";
+import { StatusCodes } from "http-status-codes";
 
-const getProfile = async (req, res) => {
+export const getProfile = async (req, res) => {
   const { id } = req.params;
 
   const profile = await Profile.findOne({ createdBy: id });
@@ -21,7 +21,7 @@ const getProfile = async (req, res) => {
   res.status(200).json({ profile });
 };
 
-const getAllProfiles = async (req, res, next) => {
+export const getAllProfiles = async (req, res, next) => {
   try {
     const { title, sort } = req.query;
 
@@ -58,5 +58,3 @@ const getAllProfiles = async (req, res, next) => {
     next(error);
   }
 };
-
-module.exports = { getAllProfiles, getProfile };

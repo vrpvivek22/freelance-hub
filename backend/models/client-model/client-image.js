@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
 const ClientImageSchema = new mongoose.Schema(
   {
@@ -25,6 +25,5 @@ const ClientImageSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-module.exports =
-  mongoose.models.ClientImage ||
+export default mongoose.models.ClientImage ||
   mongoose.model("ClientImage", ClientImageSchema, "client_images");

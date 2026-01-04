@@ -1,6 +1,6 @@
-const Joi = require("joi");
+import Joi from "joi";
 
-const addDetailsSchema = Joi.object({
+export const addDetailsSchema = Joi.object({
   profileImage: Joi.string().uri().allow(null, ""),
   name: Joi.string().trim().required().messages({
     "string.empty": "Please enter your name",
@@ -21,7 +21,7 @@ const addDetailsSchema = Joi.object({
     "any.required": "request body is required",
   });
 
-const updateDetailsSchema = Joi.object({
+export const updateDetailsSchema = Joi.object({
   profileImage: Joi.string().uri().allow(null, ""),
   name: Joi.string().trim().messages({
     "string.empty": "Please enter your name",
@@ -41,5 +41,3 @@ const updateDetailsSchema = Joi.object({
     "object.min": "you must provide atleast 1 key",
     "any.required": "request body is required",
   });
-
-module.exports = { addDetailsSchema, updateDetailsSchema };

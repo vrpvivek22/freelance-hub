@@ -1,6 +1,6 @@
-const Joi = require("joi");
+import Joi from "joi";
 
-const loginSchema = Joi.object({
+export const loginSchema = Joi.object({
   email: Joi.string().email().required().messages({
     "string.empty": "Please enter your email",
     "string.email": "Invalid Email address",
@@ -14,7 +14,7 @@ const loginSchema = Joi.object({
   }),
 });
 
-const signupSchema = Joi.object({
+export const signupSchema = Joi.object({
   name: Joi.string().required().messages({
     "string.empty": "Please provide your name",
     "any.required": "Name is required",
@@ -31,5 +31,3 @@ const signupSchema = Joi.object({
     "any.required": "Password is required",
   }),
 });
-
-module.exports = { loginSchema, signupSchema };

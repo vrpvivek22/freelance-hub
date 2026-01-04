@@ -1,7 +1,7 @@
-const Bid = require("../../models/freelancer-model/freelancer-bid");
-const Project = require("../../models/client-model/client-project");
+import Bid from "../../models/freelancer-model/freelancer-bid.js";
+import Project from "../../models/client-model/client-project.js";
 
-const completeProject = async (req, res) => {
+export const completeProject = async (req, res) => {
   try {
     const { bidId } = req.params;
 
@@ -37,5 +37,3 @@ const completeProject = async (req, res) => {
     });
   }
 };
-
-module.exports = completeProject;

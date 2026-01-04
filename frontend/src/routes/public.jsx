@@ -7,11 +7,11 @@ export default function PublicRoute({ children }) {
   const role = localStorage.getItem("role");
 
   if (role === "freelancer" && isAuthenticated) {
-    return <Navigate to="/freelancer/dashboard" />;
+    return <Navigate to="/freelancer/dashboard" replace />;
   }
 
   if (role === "client" && isAuthenticated) {
-    return <Navigate to="/client/dashboard" />;
+    return <Navigate to="/client/dashboard" replace />;
   }
 
   return children;

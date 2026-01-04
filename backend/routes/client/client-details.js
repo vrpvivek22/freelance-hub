@@ -1,17 +1,17 @@
-const express = require("express");
+import express from "express";
 const router = express.Router();
-const { validate } = require("../../middlewares/validate");
-const {
+import validate from "../../middlewares/validate.js";
+import {
   addDetailsSchema,
   updateDetailsSchema,
-} = require("../../validation/client/details-validation");
-const {
+} from "../../validation/client/details-validation.js";
+import {
   getDetails,
   addDetails,
   updateDetails,
   deleteDetails,
   getDetailsByUserId,
-} = require("../../controllers/client/client-details");
+} from "../../controllers/client/client-details.js";
 
 router
   .route("/")
@@ -21,4 +21,5 @@ router
   .delete(deleteDetails);
 
 router.get("/:userId", getDetailsByUserId);
-module.exports = router;
+
+export default router;

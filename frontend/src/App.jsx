@@ -32,13 +32,29 @@ import FreelancerSingleProfile from "./pages/freelancer/freelancer-details/get-s
 import GetClientDetails from "./pages/freelancer/get-client-profile";
 import FreelancerInvitations from "./pages/freelancer/invites/invites";
 import ClientInvitations from "./pages/client/invites/get-invites";
+import PublicRoute from "./routes/public";
+import ProtectedRoute from "./routes/protected";
 
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<Home />} />
+      <Route
+        path="/"
+        element={
+          <PublicRoute>
+            <Home />
+          </PublicRoute>
+        }
+      />
 
-      <Route path="/auth" element={<AuthPage />} />
+      <Route
+        path="/auth"
+        element={
+          <PublicRoute>
+            <AuthPage />
+          </PublicRoute>
+        }
+      />
 
       <Route path="/freelancer/profile" element={<FreelancerProfile />} />
       <Route path="/freelancer/dashboard" element={<FreelancerDashboard />} />
@@ -62,7 +78,14 @@ function App() {
       </Route>
 
       <Route path="/client/details" element={<ClientDetails />} />
-      <Route path="/client/dashboard" element={<ClientDashboard />} />
+      <Route
+        path="/client/dashboard"
+        element={
+          <ProtectedRoute>
+            <ClientDashboard />
+          </ProtectedRoute>
+        }
+      />
       <Route path="/client/dashboard/post" element={<PostAProject />} />
       <Route path="/client/edit/details" element={<EditClientDetails />} />
       <Route

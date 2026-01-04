@@ -40,7 +40,7 @@ function FreelancerDashboard() {
 
   const handleLogout = () => {
     logout();
-    navigate("/auth");
+    navigate("/", { replace: true });
   };
 
   return (
@@ -78,7 +78,7 @@ function FreelancerDashboard() {
                 <button>
                   <img
                     src={userImage ? userImage : "/default-avatar.png"}
-                    className="w-14 h-14 object-cover rounded-full cursor-pointer hover:opacity-70"
+                    className="w-14 h-14 object-cover rounded-full border-2 cursor-pointer hover:opacity-70"
                     onClick={() => setOpen(true)}
                   />
                 </button>

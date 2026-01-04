@@ -1,17 +1,18 @@
-const express = require("express");
+import express from "express";
 const router = express.Router();
-const { validate } = require("../../middlewares/validate");
-const {
+import validate from "../../middlewares/validate.js";
+import {
   bidSchema,
   updateBidSchema,
-} = require("../../validation/freelancer/bids-validation");
-const {
+} from "../../validation/freelancer/bids-validation.js";
+
+import {
   bidProject,
   updateBid,
   getMyBidProjects,
   getBidProjects,
   withdrawBid,
-} = require("../../controllers/freelancer/freelancer-bid");
+} from "../../controllers/freelancer/freelancer-bid.js";
 
 router.get("/", getMyBidProjects);
 router.get("/:freelancerId", getBidProjects);
@@ -20,4 +21,5 @@ router
   .post(validate(bidSchema), bidProject)
   .patch(validate(updateBidSchema), updateBid);
 router.delete("/:bidId", withdrawBid);
-module.exports = router;
+
+export default router;

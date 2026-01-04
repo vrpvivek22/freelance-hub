@@ -1,17 +1,17 @@
-const mongoose = require("mongoose");
-const Bid = require("../../models/freelancer-model/freelancer-bid");
-const Project = require("../../models/client-model/client-project");
-const Details = require("../../models/client-model/client-details");
-const Review = require("../../models/review-model");
-const ClientImage = require("../../models/client-model/client-image");
-const { StatusCodes } = require("http-status-codes");
-const { BadRequestError, NotFoundError } = require("../../errors");
-const {
+import mongoose from "mongoose";
+import Bid from "../../models/freelancer-model/freelancer-bid.js";
+import Project from "../../models/client-model/client-project.js";
+import Details from "../../models/client-model/client-details.js";
+import Review from "../../models/review-model.js";
+import ClientImage from "../../models/client-model/client-image.js";
+import { StatusCodes } from "http-status-codes";
+import { BadRequestError, NotFoundError } from "../../errors/index.js";
+import {
   bidSchema,
   updateBidSchema,
-} = require("../../validation/freelancer/bids-validation");
+} from "../../validation/freelancer/bids-validation.js";
 
-const bidProject = async (req, res) => {
+export const bidProject = async (req, res) => {
   const { bidAmount, coverLetter, projectDelivery } = req.body;
 
   const { error } = bidSchema.validate({
@@ -55,7 +55,7 @@ const bidProject = async (req, res) => {
     .json({ message: " Bid placed successfully", bid });
 };
 
-const updateBid = async (req, res) => {
+export const updateBid = async (req, res) => {
   const {
     user: { userId },
     params: { projectId },
@@ -84,7 +84,7 @@ const updateBid = async (req, res) => {
     .json({ message: "your bid has been updated successfully", bid });
 };
 
-const getMyBidProjects = async (req, res) => {
+export const getMyBidProjects = async (req, res) => {
   const freelancerId = req.user.userId;
 
   const bids = await Bid.find({ freelancerId })
@@ -166,7 +166,7 @@ const getMyBidProjects = async (req, res) => {
   res.status(200).json({ bids: formatted });
 };
 
-const getBidProjects = async (req, res) => {
+export const getBidProjects = async (req, res) => {
   const { freelancerId } = req.params;
 
   const bids = await Bid.find({ freelancerId });
@@ -178,7 +178,7 @@ const getBidProjects = async (req, res) => {
   res.status(200).json({ bids });
 };
 
-const withdrawBid = async (req, res) => {
+export const withdrawBid = async (req, res) => {
   const {
     user: { userId },
     params: { bidId },
@@ -200,12 +200,4 @@ const withdrawBid = async (req, res) => {
     bids,
     count: bids.length,
   });
-};
-
-module.exports = {
-  bidProject,
-  updateBid,
-  getMyBidProjects,
-  getBidProjects,
-  withdrawBid,
 };

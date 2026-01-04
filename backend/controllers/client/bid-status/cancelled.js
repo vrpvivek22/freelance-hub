@@ -1,5 +1,5 @@
-const Bid = require("../../../models/freelancer-model/freelancer-bid");
-const Project = require("../../../models/client-model/client-project");
+import Bid from "../../../models/freelancer-model/freelancer-bid.js";
+import Project from "../../../models/client-model/client-project.js";
 
 const cancelBid = async (req, res) => {
   const { bidId } = req.params;
@@ -19,4 +19,4 @@ const cancelBid = async (req, res) => {
   res.status(200).json({ message: "Bid closed", bid });
 };
 
-module.exports = cancelBid;
+export default cancelBid;

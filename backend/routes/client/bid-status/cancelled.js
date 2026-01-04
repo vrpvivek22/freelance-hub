@@ -1,8 +1,8 @@
-const express = require("express");
+import express from "express";
 const router = express.Router();
 
-const cancelBid = require("../../../controllers/client/bid-status/cancelled");
+import cancelBid from "../../../controllers/client/bid-status/cancelled.js";
 
 router.patch("/:bidId/cancel", cancelBid);
 
-module.exports = router;
+export default router;

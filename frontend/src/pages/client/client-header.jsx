@@ -37,7 +37,7 @@ function ClientHeader() {
 
   const handleLogout = () => {
     logout();
-    navigate("/auth");
+    navigate("/", { replace: true });
   };
 
   return (
@@ -120,7 +120,7 @@ function ClientHeader() {
                   <li
                     className="hover:bg-gray-700 flex flex-row items-center hover:text-white p-4 cursor-pointer rounded-3xl"
                     onClick={() => {
-                      navigate("/client/dashboard");
+                      navigate("/client/dashboard", { replace: true });
                       setOpen(false);
                     }}
                   >

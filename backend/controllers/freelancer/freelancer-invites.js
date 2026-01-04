@@ -1,6 +1,6 @@
-const Invitation = require("../../models/invitation-model/invitation");
+import Invitation from "../../models/invitation-model/invitation.js";
 
-const getfreelancerInvitations = async (req, res) => {
+export const getfreelancerInvitations = async (req, res) => {
   try {
     const freelancerId = req.user.userId;
 
@@ -25,5 +25,3 @@ const getfreelancerInvitations = async (req, res) => {
     });
   }
 };
-
-module.exports = getfreelancerInvitations;

@@ -1,19 +1,19 @@
-const express = require("express");
+import express from "express";
 const router = express.Router();
-const { validate } = require("../../middlewares/validate");
-
-const {
+import validate from "../../middlewares/validate.js";
+import {
   getAllProjects,
   addProject,
   updateProject,
   deleteProject,
   getSingleProject,
   getAllClientProjects,
-} = require("../../controllers/client/client-project");
-const {
+} from "../../controllers/client/client-project.js";
+
+import {
   addProjectSchema,
   updateProjectSchema,
-} = require("../../validation/client/project-validation");
+} from "../../validation/client/project-validation.js";
 
 router
   .route("/")
@@ -27,4 +27,4 @@ router
 
 router.get("/all/:clientId", getAllClientProjects);
 
-module.exports = router;
+export default router;

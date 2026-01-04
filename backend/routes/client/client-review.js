@@ -1,12 +1,11 @@
-const express = require("express");
+import express from "express";
 const router = express.Router();
-
-const {
+import {
   ClientReview,
   getClientReviews,
-} = require("../../controllers/client/client-review");
+} from "../../controllers/client/client-review.js";
 
 router.post("/review", ClientReview);
 router.get("/review/:clientId", getClientReviews);
 
-module.exports = router;
+export default router;

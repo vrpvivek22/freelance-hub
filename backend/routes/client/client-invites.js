@@ -1,11 +1,11 @@
-const express = require("express");
+import express from "express";
 const router = express.Router();
-const {
+import {
   Invite,
   getClientInvitations,
-} = require("../../controllers/client/client-invites");
+} from "../../controllers/client/client-invites.js";
 
 router.get("/invitations", getClientInvitations);
 router.post("/invite", Invite);
 
-module.exports = router;
+export default router;

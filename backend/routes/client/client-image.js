@@ -1,7 +1,8 @@
-const express = require("express");
+import express from "express";
 const router = express.Router();
-const { uploadClientImage } = require("../../controllers/client/client-image");
-const imageUploadMiddleware = require("../../middlewares/image-upload");
+
+import { uploadClientImage } from "../../controllers/client/client-image.js";
+import imageUploadMiddleware from "../../middlewares/image-upload.js";
 
 router.post(
   "/image/upload",
@@ -9,4 +10,4 @@ router.post(
   uploadClientImage
 );
 
-module.exports = router;
+export default router;

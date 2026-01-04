@@ -1,16 +1,16 @@
-const Project = require("../../models/client-model/client-project");
-const Bid = require("../../models/freelancer-model/freelancer-bid");
-const Profile = require("../../models/freelancer-model/freelancer-profile");
-const Review = require("../../models/review-model");
-const FreelancerImage = require("../../models/freelancer-model/freelancer-image");
-const { StatusCodes } = require("http-status-codes");
-const { BadRequestError, NotFoundError } = require("../../errors");
-const {
+import Project from "../../models/client-model/client-project.js";
+import Bid from "../../models/freelancer-model/freelancer-bid.js";
+import Profile from "../../models/freelancer-model/freelancer-profile.js";
+import Review from "../../models/review-model.js";
+import FreelancerImage from "../../models/freelancer-model/freelancer-image.js";
+import { StatusCodes } from "http-status-codes";
+import { BadRequestError, NotFoundError } from "../../errors/index.js";
+import {
   addProjectSchema,
   updateProjectSchema,
-} = require("../../validation/client/project-validation");
+} from "../../validation/client/project-validation.js";
 
-const getAllClientProjects = async (req, res) => {
+export const getAllClientProjects = async (req, res) => {
   const { clientId } = req.params;
 
   const projects = await Project.find({ createdBy: clientId }).lean();
@@ -22,7 +22,7 @@ const getAllClientProjects = async (req, res) => {
   res.status(StatusCodes.OK).json({ projects });
 };
 
-const getSingleProject = async (req, res) => {
+export const getSingleProject = async (req, res) => {
   const { projectId } = req.params;
 
   const project = await Project.findById(projectId);
@@ -34,7 +34,7 @@ const getSingleProject = async (req, res) => {
   res.status(StatusCodes.OK).json({ project });
 };
 
-const addProject = async (req, res) => {
+export const addProject = async (req, res) => {
   const { error } = addProjectSchema.validate(req.body);
 
   if (error) {
@@ -49,7 +49,7 @@ const addProject = async (req, res) => {
     .json({ message: "Project added successfully", project });
 };
 
-const getAllProjects = async (req, res, next) => {
+export const getAllProjects = async (req, res, next) => {
   try {
     const projects = await Project.find({
       createdBy: req.user.userId,
@@ -148,7 +148,7 @@ const getAllProjects = async (req, res, next) => {
   }
 };
 
-const updateProject = async (req, res) => {
+export const updateProject = async (req, res) => {
   const {
     user: { userId },
     params: { projectId },
@@ -175,7 +175,7 @@ const updateProject = async (req, res) => {
     .json({ message: "project updated successfully", project });
 };
 
-const deleteProject = async (req, res) => {
+export const deleteProject = async (req, res) => {
   const {
     user: { userId },
     params: { projectId },
@@ -197,13 +197,4 @@ const deleteProject = async (req, res) => {
     Projects,
     count: Projects.length,
   });
-};
-
-module.exports = {
-  getAllProjects,
-  getSingleProject,
-  getAllClientProjects,
-  addProject,
-  updateProject,
-  deleteProject,
 };

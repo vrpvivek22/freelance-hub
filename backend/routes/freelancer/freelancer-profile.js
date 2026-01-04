@@ -1,16 +1,16 @@
-const express = require("express");
+import express from "express";
 const router = express.Router();
-const { validate } = require("../../middlewares/validate");
-const {
+import validate from "../../middlewares/validate.js";
+import {
   addProfile,
   updateProfile,
   getProfile,
   getProfileByUserId,
-} = require("../../controllers/freelancer/freelancer-profile");
-const {
+} from "../../controllers/freelancer/freelancer-profile.js";
+import {
   addProfileSchema,
   updateProfileSchema,
-} = require("../../validation/freelancer/profile-validation");
+} from "../../validation/freelancer/profile-validation.js";
 
 router.get("/:userId", getProfileByUserId);
 router
@@ -19,4 +19,4 @@ router
   .patch(validate(updateProfileSchema), updateProfile)
   .get(getProfile);
 
-module.exports = router;
+export default router;

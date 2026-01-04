@@ -1,12 +1,12 @@
-const express = require("express");
+import express from "express";
 const router = express.Router();
 
-const {
+import {
   FreelancerReview,
   getFreelancerReviews,
-} = require("../../controllers/freelancer/freelancer-review");
+} from "../../controllers/freelancer/freelancer-review.js";
 
 router.post("/review", FreelancerReview);
 router.get("/review/:freelancerId", getFreelancerReviews);
 
-module.exports = router;
+export default router;

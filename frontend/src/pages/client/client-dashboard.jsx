@@ -41,7 +41,7 @@ function ClientDashboard() {
 
   const handleLogout = () => {
     logout();
-    navigate("/auth");
+    navigate("/", { replace: true });
   };
 
   return (

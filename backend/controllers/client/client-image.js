@@ -1,7 +1,7 @@
-const ClientImage = require("../../models/client-model/client-image");
-const { uploadToCloudinary } = require("../../helpers/cloudinaryHelper");
+import uploadToCloudinary from "../../helpers/cloudinaryHelper.js";
+import clientImage from "../../models/client-model/client-image.js";
 
-const uploadClientImage = async (req, res) => {
+export const uploadClientImage = async (req, res) => {
   try {
     if (!req.file) {
       return res.status(400).json({
@@ -12,7 +12,7 @@ const uploadClientImage = async (req, res) => {
 
     const { url, publicId } = await uploadToCloudinary(req.file.path);
 
-    const newlyUploadedImage = new ClientImage({
+    const newlyUploadedImage = new clientImage({
       url,
       publicId,
       uploadedBy: req.user.userId,
@@ -34,5 +34,3 @@ const uploadClientImage = async (req, res) => {
     });
   }
 };
-
-module.exports = { uploadClientImage };

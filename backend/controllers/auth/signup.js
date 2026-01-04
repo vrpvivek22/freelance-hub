@@ -1,6 +1,6 @@
-const User = require("../../models/auth-model");
-const { BadRequestError } = require("../../errors");
-const { StatusCodes } = require("http-status-codes");
+import User from "../../models/auth-model.js";
+import { BadRequestError } from "../../errors/index.js";
+import { StatusCodes } from "http-status-codes";
 
 const signup = async (req, res, next) => {
   const { email } = req.body;
@@ -25,4 +25,4 @@ const signup = async (req, res, next) => {
   }
 };
 
-module.exports = signup;
+export default signup;

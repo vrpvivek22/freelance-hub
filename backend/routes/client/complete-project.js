@@ -1,8 +1,8 @@
-const express = require("express");
+import express from "express";
 const router = express.Router();
 
-const completeProject = require("../../controllers/client/complete-project");
+import { completeProject } from "../../controllers/client/complete-project.js";
 
 router.patch("/:bidId/complete", completeProject);
 
-module.exports = router;
+export default router;

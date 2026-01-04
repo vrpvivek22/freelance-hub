@@ -1,6 +1,6 @@
-const User = require("../../models/auth-model");
-const { StatusCodes } = require("http-status-codes");
-const bcrypt = require("bcryptjs");
+import User from "../../models/auth-model.js";
+import { StatusCodes } from "http-status-codes";
+import bcrypt from "bcryptjs";
 
 const changePassword = async (req, res) => {
   const { currentPassword, newPassword, confirmPassword } = req.body;
@@ -33,4 +33,4 @@ const changePassword = async (req, res) => {
   res.status(StatusCodes.OK).json({ msg: "Password changed successfully" });
 };
 
-module.exports = changePassword;
+export default changePassword;

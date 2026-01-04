@@ -19,17 +19,17 @@ function UserRedirect({ role }) {
           const details = res.details;
 
           if (!details || !details.name || details.name.trim() === "") {
-            navigate("/client/details");
+            navigate("/client/details", { replace: true });
           } else {
-            navigate("/client/dashboard");
+            navigate("/client/dashboard", { replace: true });
           }
         } else if (role === "freelancer") {
           const res = await getProfileByUserIdApi(user.id);
           const profile = res.profile;
           if (!profile || !profile.name || profile.name.trim() === "") {
-            navigate("/freelancer/profile");
+            navigate("/freelancer/profile", { replace: true });
           } else {
-            navigate("/freelancer/dashboard");
+            navigate("/freelancer/dashboard", { replace: true });
           }
         } else {
           console.warn("unknown role:", role);

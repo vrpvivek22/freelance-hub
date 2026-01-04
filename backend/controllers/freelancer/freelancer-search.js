@@ -1,9 +1,9 @@
-const Project = require("../../models/client-model/client-project");
-const { StatusCodes } = require("http-status-codes");
-const Bid = require("../../models/freelancer-model/freelancer-bid");
-const Details = require("../../models/client-model/client-details");
+import Project from "../../models/client-model/client-project.js";
+import { StatusCodes } from "http-status-codes";
+import Bid from "../../models/freelancer-model/freelancer-bid.js";
+import Details from "../../models/client-model/client-details.js";
 
-const getAllProjects = async (req, res, next) => {
+export const getAllProjects = async (req, res, next) => {
   try {
     const { projectTitle, sort } = req.query;
 
@@ -48,7 +48,7 @@ const getAllProjects = async (req, res, next) => {
   }
 };
 
-const getProject = async (req, res) => {
+export const getProject = async (req, res) => {
   const { projectId } = req.params;
 
   const project = await Project.findById(projectId)
@@ -72,5 +72,3 @@ const getProject = async (req, res) => {
 
   res.status(StatusCodes.OK).json({ project: enrichedProject });
 };
-
-module.exports = { getAllProjects, getProject };

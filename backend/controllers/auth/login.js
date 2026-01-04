@@ -1,6 +1,6 @@
-const User = require("../../models/auth-model");
-const { UnauthenticatedError } = require("../../errors");
-const { StatusCodes } = require("http-status-codes");
+import User from "../../models/auth-model.js";
+import { UnauthenticatedError } from "../../errors/index.js";
+import { StatusCodes } from "http-status-codes";
 
 const login = async (req, res, next) => {
   const { email, password } = req.body;
@@ -28,4 +28,4 @@ const login = async (req, res, next) => {
   }
 };
 
-module.exports = login;
+export default login;

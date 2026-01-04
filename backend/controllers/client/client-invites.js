@@ -1,6 +1,6 @@
-const Invitation = require("../../models/invitation-model/invitation");
+import Invitation from "../../models/invitation-model/invitation.js";
 
-const Invite = async (req, res) => {
+export const Invite = async (req, res) => {
   const { projectId, freelancerId } = req.body;
   const clientId = req.user.userId;
 
@@ -13,7 +13,7 @@ const Invite = async (req, res) => {
   res.json({ success: true, invitation });
 };
 
-const getClientInvitations = async (req, res) => {
+export const getClientInvitations = async (req, res) => {
   try {
     const clientId = req.user.userId;
 
@@ -35,5 +35,3 @@ const getClientInvitations = async (req, res) => {
     });
   }
 };
-
-module.exports = { Invite, getClientInvitations };

@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
 const FreelancerImageSchema = new mongoose.Schema(
   {
@@ -25,6 +25,5 @@ const FreelancerImageSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-module.exports =
-  mongoose.models.FreelancerImage ||
+export default mongoose.models.FreelancerImage ||
   mongoose.model("FreelancerImage", FreelancerImageSchema, "freelancer_images");

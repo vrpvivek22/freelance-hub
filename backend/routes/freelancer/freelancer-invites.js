@@ -1,8 +1,8 @@
-const express = require("express");
+import express from "express";
 const router = express.Router();
 
-const getfreelancerInvitations = require("../../controllers/freelancer/freelancer-invites");
+import { getfreelancerInvitations } from "../../controllers/freelancer/freelancer-invites.js";
 
 router.get("/invitations", getfreelancerInvitations);
 
-module.exports = router;
+export default router;

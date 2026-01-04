@@ -36,7 +36,7 @@ function FreelancerHeader() {
 
   const handleLogout = () => {
     logout();
-    navigate("/auth");
+    navigate("/", { replace: true });
   };
 
   return (
@@ -110,7 +110,7 @@ function FreelancerHeader() {
                   <li
                     className="hover:bg-gray-700 flex flex-row items-center hover:text-white p-4 cursor-pointer rounded-3xl"
                     onClick={() => {
-                      navigate("/freelancer/dashboard");
+                      navigate("/freelancer/dashboard", { replace: true });
                       setOpen(false);
                     }}
                   >

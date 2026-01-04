@@ -1,4 +1,4 @@
-const cloudinary = require("../config/cloudinary");
+import cloudinary from "../config/cloudinary.js";
 
 const uploadToCloudinary = async (filepath) => {
   try {
@@ -14,4 +14,4 @@ const uploadToCloudinary = async (filepath) => {
   }
 };
 
-module.exports = { uploadToCloudinary };
+export default uploadToCloudinary;

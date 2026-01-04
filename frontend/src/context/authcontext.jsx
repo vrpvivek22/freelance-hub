@@ -25,6 +25,7 @@ export function AuthProvider({ children }) {
     localStorage.removeItem("token");
     localStorage.removeItem("user");
     localStorage.removeItem("newUser");
+    localStorage.removeItem("role");
 
     setUser(null);
     setToken(null);

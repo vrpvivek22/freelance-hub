@@ -1,25 +1,5 @@
-const Bid = require("../../../models/freelancer-model/freelancer-bid");
-const Project = require("../../../models/client-model/client-project");
-
-// const acceptBid = async (req, res) => {
-//   const { bidId } = req.params;
-
-//   const bid = await Bid.findByIdAndUpdate(
-//     bidId,
-//     { status: "inprogress" },
-//     { new: true }
-//   );
-
-//   await Project.findByIdAndUpdate(
-//     bid.projectId,
-//     { status: "inprogress" },
-//     { new: true }
-//   );
-
-//   res.status(200).json({ message: "Bid accepted", bid });
-// };
-
-// module.exports = acceptBid;
+import Bid from "../../../models/freelancer-model/freelancer-bid.js";
+import Project from "../../../models/client-model/client-project.js";
 
 const acceptBid = async (req, res) => {
   const { bidId } = req.params;
@@ -50,4 +30,4 @@ const acceptBid = async (req, res) => {
   });
 };
 
-module.exports = acceptBid;
+export default acceptBid;

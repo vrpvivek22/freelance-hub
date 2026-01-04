@@ -1,8 +1,8 @@
-const express = require("express");
+import express from "express";
 const router = express.Router();
 
-const getProposals = require("../../controllers/client/client-proposals");
+import { getProposals } from "../../controllers/client/client-proposals.js";
 
 router.get("/:projectId", getProposals);
 
-module.exports = router;
+export default router;
