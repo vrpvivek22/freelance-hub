@@ -35,16 +35,28 @@ import authenticatedUser from "./middlewares/authentication.js";
 import errorHandlerMiddleware from "./middlewares/error-handler.js";
 import notFoundMiddleware from "./middlewares/not-found.js";
 
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+const allowedOrigins = ["https://freelance-hub-zfrl.vercel.app"];
+
 app.use(
   cors({
-    origin: "http://freelance-hub-zfrl.vercel.app",
+    origin: function (origin, callback) {
+      if (!origin) return callback(null, true);
+      if (allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
     methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"],
   })
 );
+
+app.options("*", cors());
 
 app.use(helmet());
 
