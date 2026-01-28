@@ -180,7 +180,7 @@ function GetAllBids() {
                                 "hover:text-blue-500 hover:underline cursor-pointer"
                               }  ${
                                 ["incomplete", "closed"].includes(
-                                  b.bidStatus
+                                  b.bidStatus,
                                 ) && "my-2"
                               }  `}
                             >
@@ -190,7 +190,7 @@ function GetAllBids() {
                           <td className="font-bold">$ {b.project.budget}</td>
                           <td className="py-2 px-4 text-center">
                             {["inprogress", "completed"].includes(
-                              b.bidStatus
+                              b.bidStatus,
                             ) ? (
                               <p>
                                 <span className="flex flex-row gap-2  justify-center items-center">
@@ -201,7 +201,7 @@ function GetAllBids() {
                                   <span
                                     onClick={() => {
                                       navigate(
-                                        `/freelancer/get/client/details/${b.clientId}`
+                                        `/freelancer/get/client/details/${b.clientId}`,
                                       );
                                     }}
                                     className="hover:text-blue-600 hover:underline cursor-pointer"
@@ -263,7 +263,7 @@ function GetAllBids() {
                               ))}
                           </td>
                         </tr>
-                      )
+                      ),
                   )}
                 </tbody>
               </table>
