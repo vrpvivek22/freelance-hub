@@ -1,7 +1,7 @@
 import getClientProfileSearch from "@/services/client/get-profiles";
 import { useEffect, useState } from "react";
 import Footer from "../../home/footer";
-import { useLocation, useNavigate, useParams } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { FiMapPin } from "react-icons/fi";
 import ClientInviteApi from "@/services/client/invites";
 import { getClientProjectApi } from "@/services/client/project";
@@ -68,11 +68,11 @@ function ClientProfileSearch() {
   return (
     <>
       <div className="min-h-screen flex justify-center dark:bg-gray-500 bg-gradient-to-br from-blue-100 to-indigo-100 ">
-        <div className=" dark:bg-gray-900 flex flex-col dark:text-gray-10 space-y-1 mt-1 mb-15">
+        <div className=" dark:bg-gray-900 flex flex-col dark:text-gray-10 space-y-1 mt-2 mb-15">
           {profiles.map((p, index) => (
             <div
               key={index}
-              className=" p-6 w-[1150px] border-[0.2px] z-20 shadow-[0_0_6px_rgba(0,0,0,0.2)] bg-blue-50 cursor-pointer hover:scale-[1.01] dark:hover:bg-gray-600 hover:shadow-[0_0_20px_rgba(0,0,0,0.2)] transition-all rounded-xl"
+              className="p-6 w-[1150px] border-[0.2px] z-20 shadow-[0_0_6px_rgba(0,0,0,0.2)] bg-blue-50 cursor-pointer hover:scale-[1.01] dark:hover:bg-gray-600 hover:shadow-[0_0_20px_rgba(0,0,0,0.2)] transition-all rounded-xl"
               onClick={() =>
                 navigate(`/client/freelancer/profile/${p.createdBy}`)
               }
@@ -133,7 +133,7 @@ function ClientProfileSearch() {
                         </p>
                       </div>
                     </div>
-                    <p className="h-21 line-clamp-3 w-full leading-relaxed overflow-hidden text-gray-800 leading-relaxed text-[16px]">
+                    <p className="h-21 line-clamp-3 w-full overflow-hidden text-gray-800 leading-relaxed text-[16px]">
                       {p.description}
                     </p>
                     <p className="flex flex-wrap gap-2">

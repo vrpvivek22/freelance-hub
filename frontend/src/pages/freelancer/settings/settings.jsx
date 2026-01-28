@@ -11,8 +11,8 @@ export default function FreelancerSettings() {
   return (
     <>
       <div className="flex bg-gradient-to-br from-blue-100 to-indigo-100">
-        <div className="flex flex-col md:flex-row min-h-[670px] w-6xl ml-46 mb-3 rounded-sm shadow-[2px_0_6px_rgba(0,0,0,0.1)] bg-blue-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100">
-          <div className="w-full md:w-1/5 rounded-sm bg-gradient-to-br from-gray-100 via-blue-100 to-indigo-100 dark:bg-gray-800 shadow-[2px_0_6px_rgba(0,0,0,0.2)]">
+        <div className="flex flex-col md:flex-row min-h-[670px] w-6xl ml-46 mb-3 rounded-lg mt-3 shadow-[2px_0_6px_rgba(0,0,0,0.1)] bg-blue-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100">
+          <div className="w-full md:w-1/5 rounded-l-lg bg-gradient-to-br from-gray-100 via-blue-100 to-indigo-100 dark:bg-gray-800 shadow-[2px_0_6px_rgba(0,0,0,0.2)]">
             <ul className="p-4 space-y-2">
               <li>
                 <button

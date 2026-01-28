@@ -20,7 +20,7 @@ function FreelancerProjectSearch() {
         const res = await getFreelancerProjectSearch(searchQuery);
         setProjects(res.projects || []);
       } catch (err) {
-        console.error("Failed to fetch profiles:", err);
+        console.error("Failed to fetch projects:", err);
       } finally {
         setLoading(false);
       }

@@ -29,12 +29,19 @@ function FreelancerInvitations() {
   return (
     <div className="min-h-screen justify-center dark:bg-gray-500 bg-gradient-to-br from-blue-100 to-indigo-100 ">
       {invites.length === 0 ? (
-        <p>No invitations sent yet</p>
+        <p className="flex pt-65 justify-center font-bold text-red-500 text-4xl">
+          No invitations
+        </p>
       ) : (
         <>
-          <div className="min-h-screen flex justify-center dark:bg-gray-500 bg-gradient-to-br from-blue-100 to-indigo-100 ">
+          <div className="min-h-screen flex pb-30 justify-center dark:bg-gray-500 bg-gradient-to-br from-blue-100 to-indigo-100 ">
             <div className=" dark:bg-gray-900 flex flex-col dark:text-gray-10 space-y-1 mt-2 mb-5 ">
-              <h2 className="text-xl font-semibold mb-4">My Invitations</h2>
+              <div className="my-6 ml-2 space-y-3">
+                <h2 className="text-4xl font-bold">My Invitations</h2>
+                <p className="text-gray-700 text-lg font-semibold ml-0.5">
+                  Projects you’ve been invited to bid on
+                </p>
+              </div>
               {invites.map((p, index) => (
                 <div
                   key={index}
@@ -108,7 +115,6 @@ function FreelancerInvitations() {
               ))}
             </div>
           </div>
-          <Footer />
         </>
       )}
     </div>

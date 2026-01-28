@@ -75,7 +75,7 @@ function FreelancerProfilePanel() {
             <img
               src={profile.profileImage || "/default-avatar.png"}
               alt="Profile"
-              className="w-48 h-48 object-cover rounded-xl mr-6 shadow-md p-1 bg-gradient-to-br from-blue-200 to-indigo-200"
+              className="w-48 h-48 object-cover rounded-xl mr-6 shadow-md p-1 bg-gradient-to-br from-blue-300 to-indigo-300"
             />
             <div className="flex flex-col justify-center space-y-1">
               <p className="font-bold text-[30px]">{profile.name}</p>

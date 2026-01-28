@@ -57,7 +57,7 @@ function ClientHeader() {
                 handleSearch();
               }}
             >
-              <div className=" flex flex-row h-10 w-160 relative ">
+              <div className=" flex flex-row h-10 w-161 relative ">
                 <input
                   className=" bg-white h-10 w-135 rounded-l-full pl-4 pr-2 pb-1 placeholder:text-gray-500 focus:outline-none"
                   type="search"

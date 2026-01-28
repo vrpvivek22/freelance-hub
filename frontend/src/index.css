@@ -142,3 +142,8 @@
   background: url("https://www.transparenttextures.com/patterns/noise.png"),
     #eef5ff;
 }
+
+html {
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}

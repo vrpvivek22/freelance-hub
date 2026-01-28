@@ -63,7 +63,7 @@ function FreelancerHeader() {
                   onChange={(e) => setSearch(e.target.value)}
                   placeholder="Search Projects"
                 />
-                <button className="bg-gradient-to-br from-amber-500 to-orange-500 flex flex-row items-center justify-center pr-1  hover:from-amber-600 hover:to-red-500 w-25 h-10 cursor-pointer font-semibold text-white rounded-r-full ">
+                <button className="bg-gradient-to-br from-amber-500 to-orange-500 flex flex-row items-center justify-center pr-1  hover:from-amber-600 hover:to-red-500 w-35 h-10 cursor-pointer font-semibold text-white rounded-r-full ">
                   <BsSearch className="mr-1 text-sm mt-0.5" />
                   Search
                 </button>
