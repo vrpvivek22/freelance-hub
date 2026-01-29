@@ -4,6 +4,12 @@
 
 ---
 
+## 🚀 Live Demo
+
+🔗 [https://freelance-hub-zfrl.vercel.app](https://freelance-hub-zfrl.vercel.app)
+
+---
+
 ## 🌟 Features
 
 ### 👤 User Management
