@@ -6,7 +6,7 @@
 
 ## 🚀 Live Demo
 
-🔗 [https://freelance-hub-zfrl.vercel.app](https://freelance-hub-zfrl.vercel.app)
+🔗 [freelance-hub-ten-chi.vercel.app](freelance-hub-ten-chi.vercel.app)
 
 ---
 
