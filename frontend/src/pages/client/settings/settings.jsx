@@ -10,11 +10,11 @@ export default function ClientSettings() {
 
   return (
     <>
-      <div className="flex bg-gradient-to-br from-blue-100 to-indigo-100">
-        <div className="flex flex-col md:flex-row mb-3 min-h-[670px] w-6xl mt-3 ml-46 rounded-lg shadow-[2px_0_6px_rgba(0,0,0,0.1)] bg-blue-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100">
-          <div className="w-full md:w-1/5 rounded-l-lg bg-gradient-to-br from-gray-100 via-blue-100 to-indigo-100 dark:bg-gray-800 shadow-[2px_0_6px_rgba(0,0,0,0.2)]">
-            <ul className="p-4 space-y-2">
-              <li>
+      <div className="flex bg-gradient-to-br from-blue-100 to-indigo-100 px-2 sm:px-6">
+        <div className="flex flex-col md:flex-row min-h-[670px] w-full max-w-6xl md:w-6xl ml-0 md:ml-40 mb-3 rounded-lg mt-3 shadow-[2px_0_6px_rgba(0,0,0,0.1)] bg-blue-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100">
+          <div className="w-full md:w-1/5 rounded-t-lg md:rounded-l-lg bg-gradient-to-br from-gray-100 via-blue-100 to-indigo-100 dark:bg-gray-800 shadow-[2px_0_6px_rgba(0,0,0,0.2)]">
+            <ul className="p-4 space-y-2 flex flex-row sm:flex-row md:flex-col sm:gap-3 md:gap-0">
+              <li className="flex-1">
                 <button
                   onClick={() => setActiveTab("account")}
                   className={`w-full text-left p-2 rounded-lg cursor-pointer transition-all ${
@@ -26,7 +26,8 @@ export default function ClientSettings() {
                   Account Management
                 </button>
               </li>
-              <li>
+
+              <li className="flex-1">
                 <button
                   onClick={() => setActiveTab("security")}
                   className={`w-full text-left p-2 rounded-lg cursor-pointer transition-all ${
@@ -39,7 +40,7 @@ export default function ClientSettings() {
                 </button>
               </li>
 
-              <li>
+              <li className="flex-1">
                 <button
                   onClick={() => setActiveTab("theme")}
                   className={`w-full text-left p-2 rounded-lg cursor-pointer transition-all ${
@@ -52,7 +53,7 @@ export default function ClientSettings() {
                 </button>
               </li>
 
-              <li>
+              <li className="flex-1">
                 <button
                   onClick={() => setActiveTab("role")}
                   className={`w-full text-left p-2 rounded-lg cursor-pointer transition-all ${

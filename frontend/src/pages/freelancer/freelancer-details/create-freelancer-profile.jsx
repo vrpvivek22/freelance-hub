@@ -68,19 +68,19 @@ function FreelancerProfile() {
 
   return (
     <>
-      <div className="flex min-h-screen bg-gradient-to-br from-blue-200 to-indigo-200">
+      <div className="flex min-h-screen bg-gradient-to-br from-blue-200 to-indigo-200 px-2 sm:px-6">
         <form
           onSubmit={handleSubmit}
-          className="relative max-w-full mx-auto pl-14 pb-18 pt-10 my-14 space-y-1 space-x-8 rounded-2xl shadow-xl bg-white"
+          className="relative lg:max-w-6xl max-w-full mx-auto pl-4 px-5 sm:px-14 pb-18 pt-6 sm:pt-10 my-8 sm:my-14 space-y-4 sm:space-y-1 space-x-0 sm:space-x-8 rounded-2xl shadow-xl bg-white w-full"
         >
-          <div className="flex flex-row mt-4 mr-15">
-            <div className="flex flex-col mr-17 mt-3 ml-2 items-center">
+          <div className="flex flex-col lg:w-5xl lg:flex-row mt-4 mr-0 lg:mr-15">
+            <div className="flex flex-col mr-0 lg:mr-17 mt-3 ml-0 lg:ml-2 items-center">
               {profileImage ? (
                 <div className="relative mr-1">
                   <img
                     src={URL.createObjectURL(profileImage)}
                     alt="Preview"
-                    className=" w-[108px] h-28 object-cover rounded-full border cursor-pointer"
+                    className="w-[108px] h-28 object-cover rounded-full border cursor-pointer"
                   />
                   <button
                     type="button"
@@ -98,9 +98,9 @@ function FreelancerProfile() {
                   onChange={(e) => setProfileImage(e.target.files[0])}
                 />
               )}
-              <label className="mt-2 absolute font-semibold left-18 top-47">
+              <label className="mt-2 sm:absolute font-semibold sm:left-18 sm:top-47 text-center">
                 Profile Picture
-                <p className="text-xs text-gray-600 mt-2 -ml-7">
+                <p className="text-xs text-gray-600 mt-2 sm:-ml-7">
                   (Maximum image size 10 MB)
                 </p>
               </label>
@@ -108,12 +108,14 @@ function FreelancerProfile() {
                 <p className="text-xs text-red-600">⚠{errors.profileImage}</p>
               )}
             </div>
+
             {errors.general && (
-              <div className=" flex text-red-600 text-sm">
+              <div className="flex text-red-600 text-sm justify-center lg:justify-start">
                 ⚠{errors.general}
               </div>
             )}
-            <div className="flex flex-col w-96 mt-3 ml-5">
+
+            <div className="flex flex-col w-full sm:w-96 mt-3 ml-0 sm:ml-5 lg:ml-12">
               <label className="font-semibold my-1">Name *</label>
               <input
                 className="border-[0.2px] border-gray-400 px-4 py-1.5 hover:ring-[0.3px] hover:ring-gray-900 rounded focus:outline-none focus:ring-[0.2px] focus:ring-blue-800 transition"
@@ -126,10 +128,11 @@ function FreelancerProfile() {
                 <p className="text-red-600 text-sm mt-1">⚠{errors.name}</p>
               )}
             </div>
-            <div className="flex flex-col  mt-3 ml-8">
+
+            <div className="flex flex-col mt-3 ml-0 sm:ml-8 w-full lg:w-98">
               <label className="font-semibold my-1">Title *</label>
               <input
-                className="border-[0.2px] border-gray-400 w-96 px-4 py-1.5 hover:ring-[0.3px] hover:ring-gray-900 rounded focus:outline-none focus:ring-[0.2px] focus:ring-blue-500 transition"
+                className="border-[0.2px] border-gray-400 w-full lg:w-98 px-4 py-1.5 hover:ring-[0.3px] hover:ring-gray-900 rounded focus:outline-none focus:ring-[0.2px] focus:ring-blue-500 transition"
                 value={title}
                 type="title"
                 onChange={(e) => setTitle(e.target.value)}
@@ -140,10 +143,11 @@ function FreelancerProfile() {
               )}
             </div>
           </div>
-          <div className="relative flex flex-col ml-52 mb-10">
+
+          <div className="relative lg:w-[800px] flex flex-col ml-0 lg:ml-58 mb-10">
             <label className="font-semibold my-1">Description *</label>
             <textarea
-              className="border-[0.2px] border-gray-400 px-3 py-1.5 h-60 resize-none w-[800px] hover:ring-[0.3px] hover:ring-gray-900 rounded focus:outline-none focus:ring-[0.2px] focus:ring-blue-500 transition"
+              className="border-[0.2px] border-gray-400 px-3 py-1.5 h-60 resize-none w-full  hover:ring-[0.3px] hover:ring-gray-900 rounded focus:outline-none focus:ring-[0.2px] focus:ring-blue-500 transition"
               value={description}
               type="text"
               onChange={(e) => setDescription(e.target.value)}
@@ -155,19 +159,21 @@ function FreelancerProfile() {
               </p>
             )}
           </div>
-          <div className=" flex flex-row ml-52 -mt-2 space-x-[45px]">
+
+          <div className="flex flex-col lg:flex-row ml-0 lg:ml-58 lg:w-[800px] -mt-2 gap-6 lg:space-x-[45px]">
             <div className="relative flex flex-col">
               <SkillInput skills={skills} setSkills={setSkills} />
               {errors.skills && (
-                <p className="text-red-600 text-sm absolute top-19">
+                <p className="text-red-600 text-sm absolute top-19 ">
                   ⚠{errors.skills}
                 </p>
               )}
             </div>
-            <div className=" relative flex flex-col">
+
+            <div className="relative flex flex-col">
               <label className="font-semibold my-1">Hourly Rate *</label>
               <input
-                className="border-[0.2px] border-gray-400 px-4 py-1.5 w-76.5 hover:ring-[0.3px] hover:ring-gray-900 rounded focus:outline-none focus:ring-[0.2px] focus:ring-blue-500 transition"
+                className="border-[0.2px] border-gray-400 px-4 py-1.5 w-full sm:w-86.5 hover:ring-[0.3px] hover:ring-gray-900 rounded focus:outline-none focus:ring-[0.2px] focus:ring-blue-500 transition"
                 value={hourlyRate}
                 type="number"
                 onChange={(e) => setHourlyRate(e.target.value)}
@@ -180,11 +186,12 @@ function FreelancerProfile() {
               )}
             </div>
           </div>
-          <div className="relative flex flex-row ml-52 space-x-[45px] mt-8">
+
+          <div className="relative flex flex-col lg:flex-row ml-0 lg:ml-58 lg:w-md space-y-6 lg:space-y-0 lg:space-x-[45px] mt-8">
             <div className="flex flex-col">
               <label className="font-semibold my-1">Country *</label>
               <input
-                className="border-[0.2px] border-gray-400 px-4 py-1.5 w-md hover:ring-[0.3px] hover:ring-gray-900 rounded focus:outline-none focus:ring-[0.2px] focus:ring-blue-500 transition"
+                className="border-[0.2px] border-gray-400 px-4 py-1.5 lg:w-sm sm:w-md hover:ring-[0.3px] hover:ring-gray-900 rounded focus:outline-none focus:ring-[0.2px] focus:ring-blue-500 transition"
                 type="text"
                 value={country}
                 onChange={(e) => setCountry(e.target.value)}
@@ -197,10 +204,11 @@ function FreelancerProfile() {
               )}
             </div>
           </div>
-          <div className="flex relative">
+
+          <div className="flex relative justify-center lg:justify-end">
             <button
               type="submit"
-              className="font-semibold absolute right-15 bottom-0 bg-gradient-to-r from-blue-600 to-blue-500 hover:bg-gradient-to-r hover:from-blue-700 hover:to-blue-600 mt-6 cursor-pointer text-white px-8 py-1 text-lg rounded"
+              className="font-semibold lg:absolute lg:right-3 bottom-0 bg-gradient-to-r from-blue-600 to-blue-500 hover:bg-gradient-to-r hover:from-blue-700 hover:to-blue-600 mt-10 cursor-pointer text-white px-8 py-1 text-lg rounded"
             >
               Finish
             </button>

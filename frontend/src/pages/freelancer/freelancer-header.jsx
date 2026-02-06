@@ -43,38 +43,41 @@ function FreelancerHeader() {
     <>
       <div className="flex flex-col flex-auto">
         <div className="flex flex-auto flex-col max-w-full">
-          <div className="flex flex-auto flex-row items-center justify-center space-x-9 bg-gradient-to-b from-blue-600 to-indigo-700 h-24 shadow-xl z-200">
+          <div className="flex flex-row md:flex-row flex-auto items-center justify-between md:justify-center gap-4 sm:gap-0 md:space-x-9 bg-gradient-to-b from-blue-600 to-indigo-700 h-auto md:h-24 px-4 shadow-xl z-200">
             <div className="flex flex-row items-center">
-              <FaLaptop className="text-4xl mt-0.5 text-amber-500" />
-              <p className=" text-white ml-2 my-5 text-2xl logo-text">
+              <FaLaptop className="text-3xl md:text-4xl mt-0.5 text-amber-500" />
+              <p className="text-white ml-2 my-2 sm:my-5 text-md sm:text-2xl logo-text">
                 Freelance Hub
               </p>
             </div>
+
             <form
+              className="w-full md:w-auto"
               onSubmit={(e) => {
                 e.preventDefault();
                 handleSearch();
               }}
             >
-              <div className=" flex flex-row h-10 w-203 relative ">
+              <div className="flex flex-row h-10 w-full md:w-203 relative">
                 <input
-                  className=" bg-white h-10 w-178 rounded-l-full pl-4 pr-2 pb-1 placeholder:text-gray-500 focus:outline-none"
+                  className="bg-white h-8 mt-1 sm:mt-0 sm:h-10 w-full md:w-178 rounded-l-full pl-4 pr-2 pb-1 placeholder:text-gray-500 focus:outline-none"
                   type="search"
                   onChange={(e) => setSearch(e.target.value)}
                   placeholder="Search Projects"
                 />
-                <button className="bg-gradient-to-br from-amber-500 to-orange-500 flex flex-row items-center justify-center pr-1  hover:from-amber-600 hover:to-red-500 w-35 h-10 cursor-pointer font-semibold text-white rounded-r-full ">
+                <button className="bg-gradient-to-br from-amber-500 to-orange-500 flex flex-row items-center justify-center pr-1 hover:from-amber-600 hover:to-red-500 w-20 md:w-35 h-8 mt-1 sm:mt-0 sm:h-10 cursor-pointer font-semibold text-white rounded-r-full">
                   <BsSearch className="mr-1 text-sm mt-0.5" />
-                  Search
+                  <span className="hidden sm:block">Search</span>
                 </button>
               </div>
             </form>
-            <div>
+
+            <div className="self-end md:self-auto">
               <div className="flex">
                 <button>
                   <img
                     src={userImage ? userImage : "/default-avatar.png"}
-                    className="w-14 h-14 object-cover rounded-full border-2 cursor-pointer hover:opacity-70"
+                    className="w-18 h-9 mb-3 sm:mb-0 md:w-14 md:h-14 object-cover rounded-full border-2 cursor-pointer hover:opacity-70"
                     onClick={() => setOpen(true)}
                   />
                 </button>
@@ -82,12 +85,11 @@ function FreelancerHeader() {
 
               <div
                 className={`
-              fixed top-0 right-0 h-full w-72 bg-gradient-to-br from-gray-200 via-blue-200 to-indigo-200 text-black px-5 py-16
+              fixed top-0 right-0 h-full w-64 md:w-72 bg-gradient-to-br from-gray-200 via-blue-200 to-indigo-200 text-black px-5 py-16
               transform transition-transform duration-300 z-50
               ${open ? "translate-x-0" : "translate-x-full"}
             `}
               >
-                {" "}
                 <div
                   className="bg-red-500 rounded absolute top-3 left-2 pb-3 text-white w-9 h-8 hover:bg-red-400 cursor-pointer flex"
                   onClick={() => setOpen(false)}
@@ -96,6 +98,7 @@ function FreelancerHeader() {
                     ✕
                   </button>
                 </div>
+
                 <ul className="space-y-3">
                   <li
                     className="hover:bg-gray-700 flex flex-row items-center hover:text-white p-4 cursor-pointer rounded-3xl"
@@ -166,6 +169,7 @@ function FreelancerHeader() {
                   </li>
                 </ul>
               </div>
+
               {open && (
                 <div
                   onClick={() => setOpen(false)}

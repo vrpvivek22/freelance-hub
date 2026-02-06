@@ -94,16 +94,22 @@ function EditClientDetails() {
   };
 
   return (
-    <div className="flex min-h-screen justify-center bg-gradient-to-br from-blue-200 to-indigo-200">
-      <div className="flex justify-center my-12 ">
+    <div className="flex min-h-screen justify-center bg-gradient-to-br from-blue-200 to-indigo-200 px-3 sm:px-6">
+      <div className="flex justify-center my-6 sm:my-12 w-full">
         <form
           onSubmit={handleUpdate}
-          className="max-w-4xl relative px-10 pt-15 pb-20 space-x-5 mr-10 rounded-2xl bg-white shadow-xl"
+          className="
+        w-full max-w-4xl relative
+        px-4 sm:px-8 lg:px-10
+        pt-10 sm:pt-15
+        pb-16 sm:pb-20
+        rounded-2xl bg-white shadow-xl
+      "
         >
-          <div className="flex flex-row ml-6 items-center">
-            <div className="relative flex flex-col mr-18 items-center">
+          <div className="flex flex-col lg:flex-row lg:ml-6 items-start lg:items-center gap-8">
+            <div className="relative flex flex-col items-center lg:mr-18">
               {profileImage || newImageFile ? (
-                <div className="relative mr-1">
+                <div className="relative">
                   <img
                     src={
                       newImageFile
@@ -111,7 +117,7 @@ function EditClientDetails() {
                         : profileImage
                     }
                     alt="Preview"
-                    className=" w-[120px] h-28 object-cover rounded-full border"
+                    className="w-28 lg:w-[120px] h-28 object-cover rounded-full border"
                   />
                   <button
                     type="button"
@@ -119,115 +125,112 @@ function EditClientDetails() {
                       setProfileImage("");
                       setNewImageFile(null);
                     }}
-                    className="absolute -top-2 -right-2 bg-red-600 hover:bg-red-600 cursor-pointer text-white rounded-full w-6 h-6"
+                    className="absolute -top-2 -right-2 bg-red-600 text-white rounded-full w-6 h-6"
                   >
                     ✕
                   </button>
                 </div>
               ) : (
                 <input
-                  className="rounded-full bg-gray-400 text-gray-100 h-28 w-29 text-lg pt-10 pl-5 cursor-pointer"
+                  className="rounded-full bg-gray-400 text-gray-100 h-28 w-28 text-lg pt-10 pl-5 cursor-pointer"
                   type="file"
                   accept="image/*"
                   onChange={(e) => setNewImageFile(e.target.files[0])}
                 />
               )}
-              <label className="mt-2 absolute left-2 top-29 font-semibold">
+
+              <label className="mt-2 text-center font-semibold">
                 Profile Picture
-                <p className="text-xs text-gray-600 mt-2">
+                <p className="text-xs text-gray-600 mt-1">
                   (Maximum image size 10 MB)
                 </p>
               </label>
+
               {errors.profileImage && (
                 <p className="text-xs text-red-600">⚠{errors.profileImage}</p>
               )}
             </div>
+
             {errors.general && (
-              <div className=" flex text-red-600 text-sm ">
-                ⚠{errors.general}
-              </div>
+              <div className="text-red-600 text-sm">⚠{errors.general}</div>
             )}
-            <div className="flex flex-col relative w-[620px] mb-8">
+
+            <div className="flex flex-col relative w-full lg:w-[860px]">
               <label className="font-semibold my-1">Name</label>
               <input
-                className="border-[0.2px] border-gray-400 px-4 py-1.5 hover:ring-[0.3px] hover:ring-gray-900 rounded focus:outline-none focus:ring-[0.2px] focus:ring-blue-500 transition"
+                className="border-[0.2px] border-gray-400 px-4 py-1.5 rounded focus:outline-none focus:ring-[0.2px] focus:ring-blue-500"
                 value={name}
                 type="text"
                 onChange={(e) => setName(e.target.value)}
                 placeholder="Enter your Name"
               />
               {errors.name && (
-                <p className="text-sm absolute top-19 text-red-600">
-                  ⚠{errors.name}
-                </p>
+                <p className="text-sm text-red-600 mt-1">⚠{errors.name}</p>
               )}
             </div>
           </div>
-          <div className="flex flex-col relative w-[585px] ml-53 mb-8">
+
+          <div className="flex flex-col relative w-full lg:w-[585px] lg:ml-58 mt-8 md:mt-0 md:mb-8">
             <label className="font-semibold my-1">Description</label>
             <textarea
-              className="border-[0.2px] border-gray-400 px-3 py-2 h-50 hover:ring-[0.3px] hover:ring-gray-900 rounded focus:outline-none focus:ring-[0.2px] focus:ring-blue-500 transition"
+              className="border-[0.2px] border-gray-400 px-3 py-2 h-40 sm:h-50 rounded focus:outline-none focus:ring-[0.2px] focus:ring-blue-500"
               value={description}
-              type="text"
               onChange={(e) => setDescription(e.target.value)}
               placeholder="Write a short description about yourself or your company (optional)"
             />
             {errors.description && (
-              <p className="text-sm absolute top-32 text-red-600">
-                ⚠{errors.description}
-              </p>
+              <p className="text-sm text-red-600 mt-1">⚠{errors.description}</p>
             )}
           </div>
-          <div className="flex flex-row ml-53 mb-5">
-            <div className="flex flex-col w-64 mr-27 ">
+
+          <div className="flex flex-col sm:flex-row gap-6 lg:ml-58 mt-8">
+            <div className="flex flex-col w-full lg:mr-20 sm:w-64">
               <label className="font-semibold my-1">Client Type</label>
               <select
                 value={clientType}
-                name="clientType"
                 onChange={(e) => setClientType(e.target.value)}
-                className="border-[0.2px] border-gray-400 px-4 py-1.5 bg-none  hover:ring-[0.3px] hover:ring-gray-900 rounded focus:outline-none focus:ring-[0.2px] focus:ring-blue-500 transition"
+                className="border-[0.2px] border-gray-400 px-4 py-1.5 rounded focus:outline-none focus:ring-[0.2px] focus:ring-blue-500"
               >
-                <option className="text-gray-400" disabled hidden>
+                <option disabled hidden>
                   Select client type
                 </option>
-                <option value="individual" className="bg-none">
-                  Individual
-                </option>
+                <option value="individual">Individual</option>
                 <option value="agency">Agency</option>
                 <option value="company">Company</option>
               </select>
               {errors.clientType && (
-                <p className="text-red-600 text-sm">⚠{errors.clientType}</p>
+                <p className="text-red-600 text-sm mt-1">
+                  ⚠{errors.clientType}
+                </p>
               )}
             </div>
 
-            <div className="flex flex-col w-60 relative">
+            <div className="flex flex-col w-full sm:w-60">
               <label className="font-semibold my-1">Country</label>
               <input
-                className="border-[0.2px] border-gray-400 px-4 py-1.5 hover:ring-[0.3px] hover:ring-gray-900 rounded focus:outline-none focus:ring-[0.2px] focus:ring-blue-500 transition"
+                className="border-[0.2px] border-gray-400 px-4 py-1.5 rounded focus:outline-none focus:ring-[0.2px] focus:ring-blue-500"
                 type="text"
                 value={country}
                 onChange={(e) => setCountry(e.target.value)}
                 placeholder="Country"
               />
               {errors.country && (
-                <p className="text-red-600 absolute top-18 text-sm">
-                  ⚠{errors.country}
-                </p>
+                <p className="text-red-600 text-sm mt-1">⚠{errors.country}</p>
               )}
             </div>
           </div>
-          <div className="flex flex-row relative mt-12">
+
+          <div className="flex flex-col sm:flex-row justify-end gap-4 mt-12">
             <button
               type="submit"
-              className="font-semibold absolute right-45 top-0 bg-gradient-to-r from-blue-600 to-blue-500 hover:bg-gradient-to-r hover:from-blue-700 hover:to-blue-600 text-white px-10 py-1 text-lg rounded cursor-pointer"
+              className="font-semibold cursor-pointer bg-gradient-to-r from-blue-600 to-blue-500 hover:bg-gradient-to-r hover:from-blue-700 hover:to-blue-600 text-white px-10 py-1 text-lg rounded"
             >
               Save
             </button>
             <button
               type="button"
               onClick={() => navigate("/client/get/details")}
-              className="font-semibold absolute right-5 top-0 bg-gradient-to-r from-red-600 to-red-500 hover:bg-gradient-to-r hover:from-red-700 hover:to-red-600 text-white px-10 py-1 text-lg rounded cursor-pointer"
+              className="font-semibold cursor-pointer bg-gradient-to-r from-red-600 to-red-500 hover:bg-gradient-to-r hover:from-red-700 hover:to-red-600 text-white px-10 py-1 text-lg rounded"
             >
               Cancel
             </button>

@@ -22,11 +22,11 @@ export default function SkillInput({ skills, setSkills }) {
     <div>
       <label className="block font-semibold my-1">Skills *</label>
 
-      <div className="flex flex-wrap gap-2 rounded p-2 w-md min-h-10 border-[0.2px] z-30 border-gray-500 px-4 py-1.5 hover:ring-[0.3px] hover:ring-gray-900 focus:outline-none focus:ring-[0.2px] focus:ring-blue-500 transition">
+      <div className="flex flex-wrap gap-2 rounded p-2 lg:w-sm w-full min-h-10 border-[0.2px] z-30 border-gray-500 px-4 py-1.5 hover:ring-[0.3px] hover:ring-gray-900 focus:outline-none focus:ring-[0.2px] focus:ring-blue-500 transition">
         {skills.map((skill, index) => (
           <div
             key={index}
-            className="flex items-center bg-blue-600 text-white px-3 py-1 rounded-full"
+            className="flex items-center bg-blue-600 text-white px-3 py-1 lg:w-sm rounded-full"
           >
             <span>{skill}</span>
             <button

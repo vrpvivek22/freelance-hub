@@ -44,35 +44,38 @@ function ClientHeader() {
     <>
       <div className="flex flex-col flex-auto">
         <div className="flex flex-auto flex-col max-w-full">
-          <div className="flex flex-auto z-100 flex-row items-center justify-center space-x-9 bg-gradient-to-b from-blue-600 to-indigo-700 h-24 shadow-xl">
+          <div className="flex flex-row lg:flex-row flex-auto z-100 items-center justify-center gap-4 lg:gap-9 sm:min-h-24 min-h-14 bg-gradient-to-b from-blue-600 to-indigo-700 shadow-xl px-4 py-3">
             <div className="flex flex-row items-center">
-              <FaLaptop className="text-4xl mt-0.5 text-amber-500" />
-              <p className=" text-white ml-2 text-2xl logo-text ">
+              <FaLaptop className="text-3xl sm:text-4xl mt-0.5 text-amber-500" />
+              <p className="text-white ml-2 text-md sm:text-2xl logo-text">
                 Freelance Hub
               </p>
             </div>
+
             <form
               onSubmit={(e) => {
                 e.preventDefault();
                 handleSearch();
               }}
+              className="w-full sm:w-auto"
             >
-              <div className=" flex flex-row h-10 w-161 relative ">
+              <div className="flex flex-row h-10 w-full sm:w-161 relative">
                 <input
-                  className=" bg-white h-10 w-135 rounded-l-full pl-4 pr-2 pb-1 placeholder:text-gray-500 focus:outline-none"
+                  className="bg-white sm:h-10 h-8 w-full sm:w-135 mt-1 rounded-l-full pl-4 pr-2 pb-1 placeholder:text-gray-500 focus:outline-none"
                   type="search"
                   onChange={(e) => setSearch(e.target.value)}
                   placeholder="Search Talents"
                 />
-                <button className="bg-gradient-to-br from-amber-500 to-orange-500 flex flex-row items-center justify-center pr-1  hover:from-amber-600 hover:to-red-500 w-25 h-10 cursor-pointer font-semibold text-white rounded-r-full ">
+                <button className="bg-gradient-to-br from-amber-500 to-orange-500 flex flex-row items-center justify-center pr-1 hover:from-amber-600 hover:to-red-500 w-24 sm:w-25 md:w-35 h-8 mt-1 sm:mt-0 sm:h-10 cursor-pointer font-semibold text-white rounded-r-full">
                   <BsSearch className="mr-1 text-sm mt-0.5" />
-                  Search
+                  <span className="hidden sm:block">Search</span>
                 </button>
               </div>
             </form>
-            <div>
+
+            <div className="w-full sm:w-auto">
               <button
-                className="bg-gradient-to-br from-lime-500 to-green-500  hover:from-lime-600 hover:to-green-600 py-2 px-4 text-white font-semibold rounded cursor-pointer"
+                className="sm:py-2 sm:px-4 px-1 py-1 w-25 text-sm sm:text-lg bg-gradient-to-br from-lime-500 to-green-500 hover:from-lime-600 hover:to-green-600 text-white font-semibold rounded cursor-pointer sm:w-auto"
                 onClick={() => {
                   navigate("/client/dashboard/post");
                 }}
@@ -80,22 +83,24 @@ function ClientHeader() {
                 Post a Project
               </button>
             </div>
+
             <div>
-              <div className="flex">
+              <div className="flex justify-center sm:justify-start">
                 <button>
                   <img
                     src={userImage ? userImage : "/default-avatar.png"}
-                    className="w-12 h-12 object-cover rounded cursor-pointer hover:opacity-70"
+                    className="w-32 h-10 sm:w-12 sm:h-12 object-cover rounded cursor-pointer hover:opacity-70"
                     onClick={() => setOpen(true)}
                   />
                 </button>
               </div>
+
               <div
                 className={`
-          fixed top-0 right-0 h-full w-72 bg-gradient-to-br from-gray-200 via-blue-200 to-indigo-200 text-black px-5 py-16
-          transform transition-transform duration-300 z-50
-          ${open ? "translate-x-0" : "translate-x-full"}
-        `}
+              fixed top-0 right-0 h-full w-72 bg-gradient-to-br from-gray-200 via-blue-200 to-indigo-200 text-black px-5 py-16
+              transform transition-transform duration-300 z-50
+              ${open ? "translate-x-0" : "translate-x-full"}
+            `}
               >
                 {" "}
                 <div
@@ -117,6 +122,7 @@ function ClientHeader() {
                     <FaUserCircle className="text-xl mr-2" />
                     Profile
                   </li>
+
                   <li
                     className="hover:bg-gray-700 flex flex-row items-center hover:text-white p-4 cursor-pointer rounded-3xl"
                     onClick={() => {
@@ -127,6 +133,7 @@ function ClientHeader() {
                     <MdDashboard className="text-xl mr-2" />
                     Dashboard
                   </li>
+
                   <li
                     className="hover:bg-gray-700 flex flex-row items-center hover:text-white p-4 cursor-pointer rounded-3xl"
                     onClick={() => {
@@ -137,6 +144,7 @@ function ClientHeader() {
                     <FaUserFriends className="text-xl mr-2" />
                     Find Talent
                   </li>
+
                   <li
                     className="hover:bg-gray-700 flex flex-row items-center hover:text-white p-4 cursor-pointer rounded-3xl"
                     onClick={() => {
@@ -147,6 +155,7 @@ function ClientHeader() {
                     <FaFolderOpen className="text-xl mr-2" />
                     My Projects
                   </li>
+
                   <li
                     className="hover:bg-gray-700 flex flex-row items-center hover:text-white p-4 cursor-pointer rounded-3xl"
                     onClick={() => {
@@ -157,6 +166,7 @@ function ClientHeader() {
                     <FaUserPlus className="text-xl mr-2" />
                     Invites
                   </li>
+
                   <li
                     className="hover:bg-gray-700 flex flex-row items-center hover:text-white p-4 cursor-pointer rounded-3xl"
                     onClick={() => {
@@ -167,6 +177,7 @@ function ClientHeader() {
                     <FiSettings className="text-xl mr-2" />
                     Settings
                   </li>
+
                   <li
                     className="hover:bg-gray-700 flex flex-row items-center hover:text-white p-4 cursor-pointer rounded-3xl"
                     onClick={handleLogout}
@@ -176,6 +187,7 @@ function ClientHeader() {
                   </li>
                 </ul>
               </div>
+
               {open && (
                 <div
                   onClick={() => setOpen(false)}

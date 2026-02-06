@@ -28,17 +28,17 @@ export default function ThemeToggle() {
 
   return (
     <div>
-      <h2 className="text-3xl font-bold px-6 py-4">Appearance</h2>
+      <h2 className="text-2xl sm:text-3xl font-bold px-6 py-4">Appearance</h2>
       <div className="flex items-center space-x-4 px-7 py-4">
-        <span className="font-semibold text-lg">Dark Mode</span>
+        <span className="font-semibold sm:text-lg text-md">Dark Mode</span>
         <button
           onClick={toggleTheme}
-          className={`w-9 h-5 flex items-center rounded-full ${
+          className={`sm:w-9 sm:h-5 w-7 h-4 flex items-center rounded-full ${
             darkMode ? "bg-blue-500" : "bg-gray-300"
           }`}
         >
           <span
-            className={`bg-white w-4 h-4 rounded-full transform duration-300 ${
+            className={`bg-white sm:w-4 sm:h-4 w-3 rounded-full transform duration-300 ${
               darkMode ? "translate-x-4.5" : "translate-x-0.5"
             }`}
           ></span>

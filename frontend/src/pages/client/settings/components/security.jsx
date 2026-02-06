@@ -28,7 +28,7 @@ export default function ChangePassword() {
 
   return (
     <div className=" px-4 py-4">
-      <h2 className="text-3xl font-bold mb-8">Change Password</h2>
+      <h2 className="text-2xl sm:text-3xl font-bold mb-8">Change Password</h2>
       <form onSubmit={handleSubmit} className="space-y-4">
         <input
           type="password"
@@ -59,7 +59,7 @@ export default function ChangePassword() {
         />
         <button
           type="submit"
-          className="bg-blue-500 text-white px-4 py-2 mt-2 rounded"
+          className="bg-blue-500 text-white text-sm md:text-md px-3 sm:px-4 py-2 sm:py-2 mt-2 rounded"
         >
           Update Password
         </button>

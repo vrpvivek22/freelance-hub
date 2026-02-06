@@ -37,43 +37,47 @@ function Home() {
     <>
       <div className="relative items-center text-white duration-300">
         <Header />
+
         <div
-          className="absolute inset-0 bg-cover h-[735px] bg-center bg-fixed"
+          className="absolute inset-0 bg-cover h-[735px] sm:h-[680px] md:h-[700px] lg:h-[735px] bg-center bg-fixed"
           style={{
             backgroundImage: `url(${heroBg})`,
           }}
         ></div>
 
-        <div className="absolute inset-0 top-0 h-[735px] bg-black opacity-40"></div>
+        <div className="absolute inset-0 top-0 h-[735px] sm:h-[680px] md:h-[700px] lg:h-[735px] bg-black opacity-40"></div>
+
         <div
-          className="absolute inset-0 top-0 h-[735px] bg-slate-900"
+          className="absolute inset-0 top-0 h-[735px] sm:h-[680px] md:h-[700px] lg:h-[735px] bg-slate-900"
           style={{ opacity: overlayOpacity }}
         ></div>
 
-        <div className="relative z-10 flex flex-col py-30 max-w-4xl px-28 ">
+        <div className="relative z-10 flex flex-col py-30 max-w-4xl px-6 sm:px-10 md:px-20 lg:px-28">
           <div className="flex flex-col">
-            <p className="text-white font-semibold text-5xl ml-8">
+            <p className="text-white font-semibold text-3xl sm:text-4xl md:text-5xl ml-0 sm:ml-4 md:ml-8">
               Work smarter. Hire better. <br />
               Build faster.
             </p>
-            <div className="my-9 space-y-2 mx-4">
-              <p className="flex items-center text-white text-xl ml-8 ">
+
+            <div className="my-9 space-y-2 mx-0 sm:mx-2 md:mx-4">
+              <p className="flex items-center text-white text-lg sm:text-xl ml-0 sm:ml-4 md:ml-8">
                 <span className="text-3xl mx-2">•</span> Post a project and get
                 offers within minutes.
               </p>
-              <p className="flex items-center text-white text-xl ml-8">
+              <p className="flex items-center text-white text-lg sm:text-xl ml-0 sm:ml-4 md:ml-8">
                 <span className="text-3xl mx-2">•</span> Trusted professionals
                 ready to help.
               </p>
-              <p className="flex items-center text-white text-xl ml-8">
+              <p className="flex items-center text-white text-lg sm:text-xl ml-0 sm:ml-4 md:ml-8">
                 <span className="text-3xl mx-2">•</span> Start building your
                 next big thing.
               </p>
             </div>
           </div>
-          <div className="mx-14">
+
+          <div className="mx-0 sm:mx-6 md:mx-14">
             <button
-              className="flex items-center hover:shadow-2xl gap-2 bg-gradient-to-r from-blue-600 to-indigo-700 hover:shadow-[0_10px_30px_rgba(219,234,254,0.3)] text-white py-3 rounded-full px-15 font-bold text-xl cursor-pointer"
+              className="flex items-center hover:shadow-2xl gap-2 bg-gradient-to-r from-blue-600 to-indigo-700 hover:shadow-[0_10px_30px_rgba(219,234,254,0.3)] text-white py-3 rounded-full px-10 sm:px-12 md:px-15 font-bold text-lg sm:text-xl cursor-pointer"
               onClick={handleAuth}
             >
               Start your journey
@@ -84,14 +88,14 @@ function Home() {
           </div>
         </div>
 
-        <section class="pt-45 pb-30 px-35 flex flex-col items-center bg-gradient-to-b from-slate-900 to-slate-950 text-gray-300 text-center">
-          <h2 class="text-5xl font-bold mb-12 text-white">
+        <section class="pt-20 sm:pt-30 md:pt-45 pb-20 px-6 sm:px-12 md:px-35 flex flex-col items-center bg-gradient-to-b from-slate-900 to-slate-950 text-gray-300 text-center">
+          <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-12 text-white">
             About{" "}
             <span class="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-700 logo-text tracking-wide">
               FreelanceHub
             </span>
           </h2>
-          <p class="text-lg leading-loose max-w-4xl">
+          <p class="text-base sm:text-lg leading-loose max-w-4xl">
             FreelanceHub is a modern online platform built to connect clients
             with talented freelancers in a fast, secure, and flexible way.
             Whether you are looking to hire professionals or showcase your
@@ -99,14 +103,16 @@ function Home() {
           </p>
         </section>
 
-        <div className="flex flex-row md:flex-col gap-18 bg-gradient-to-r from-slate-900 to-slate-950 py-24 px-35">
+        <div className="flex flex-col gap-18 bg-gradient-to-r from-slate-900 to-slate-950 py-24 px-6 sm:px-12 md:px-35">
           <div>
-            <p className="font-bold text-5xl text-center mb-8">How it works?</p>
+            <p className="font-bold text-3xl sm:text-4xl md:text-5xl text-center mb-8">
+              How it works?
+            </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-18">
             <div>
-              <h3 className="text-3xl ml-4 font-bold text-blue-500 mb-6">
+              <h3 className="text-2xl sm:text-3xl ml-0 sm:ml-4 font-bold text-blue-500 mb-6">
                 Clients
               </h3>
 
@@ -147,7 +153,7 @@ function Home() {
             </div>
 
             <div>
-              <h3 className="text-3xl ml-4 font-bold text-indigo-500 mb-6">
+              <h3 className="text-2xl sm:text-3xl ml-0 sm:ml-4 font-bold text-indigo-500 mb-6">
                 Freelancers
               </h3>
 
@@ -189,34 +195,43 @@ function Home() {
           </div>
         </div>
 
-        <div className="flex flex-col py-22 px-45 bg-gradient-to-l from-slate-900 to-slate-950">
-          <h2 class="text-5xl font-bold text-center text-white mb-25">
+        <div className="bg-gradient-to-l from-slate-900 to-slate-950 py-16 sm:py-20 px-4 sm:px-8 lg:px-20">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-center text-white mb-12">
             Why Choose{" "}
-            <span class="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-700 logo-text tracking-wide">
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-700 tracking-wide">
               FreelanceHub?
             </span>
           </h2>
-          <div className="max-w-full mx-auto grid md:grid-cols-3 gap-20 text-center">
-            <div className="bg-gradient-to-r from-blue-600 to-indigo-700 p-10 hover:scale-[1.04] duration-300 transform ease-out flex flex-col space-y-5 rounded-lg hover:shadow-xl shadow-md transition-all">
-              <FaLaptopCode className="text-4xl mx-auto " />
-              <h3 className="text-2xl font-bold ">Quality Projects</h3>
-              <p>
+
+          <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+            <div className="bg-gradient-to-r from-blue-600 to-indigo-700 p-8 hover:scale-[1.04] transition-all duration-300 flex flex-col items-center space-y-4 rounded-xl shadow-md hover:shadow-xl">
+              <FaLaptopCode className="text-4xl" />
+              <h3 className="text-2xl font-bold text-center">
+                Quality Projects
+              </h3>
+              <p className="text-center text-indigo-100">
                 Find projects that match your skills and get paid fairly for
                 your work.
               </p>
             </div>
-            <div className="bg-gradient-to-r from-blue-600 to-indigo-700 p-10 hover:scale-[1.04] duration-300 transform ease-out flex flex-col space-y-5 rounded-lg hover:shadow-xl shadow-sm transition">
-              <FaUsers className=" text-4xl mx-auto mb-4" />
-              <h3 className="text-2xl font-bold mb-2">Trusted Community</h3>
-              <p>
+
+            <div className="bg-gradient-to-r from-blue-600 to-indigo-700 p-8 hover:scale-[1.04] transition-all duration-300 flex flex-col items-center space-y-4 rounded-xl shadow-md hover:shadow-xl">
+              <FaUsers className="text-4xl" />
+              <h3 className="text-2xl font-bold text-center">
+                Trusted Community
+              </h3>
+              <p className="text-center text-indigo-100">
                 Join a growing network of freelancers and clients built on trust
                 and collaboration.
               </p>
             </div>
-            <div className="bg-gradient-to-r from-blue-600 to-indigo-700 p-10 hover:scale-[1.04] duration-300 transform ease-out flex flex-col space-y-5 rounded-lg hover:shadow-xl shadow-sm transition">
-              <FaGlobe className="text-4xl mx-auto mb-4" />
-              <h3 className="text-2xl font-bold mb-2">Global Opportunities</h3>
-              <p>
+
+            <div className="bg-gradient-to-r from-blue-600 to-indigo-700 p-8 hover:scale-[1.04] transition-all duration-300 flex flex-col items-center space-y-4 rounded-xl shadow-md hover:shadow-xl">
+              <FaGlobe className="text-4xl" />
+              <h3 className="text-2xl font-bold text-center">
+                Global Opportunities
+              </h3>
+              <p className="text-center text-indigo-100">
                 Work on projects from around the world and expand your
                 professional network.
               </p>
@@ -224,18 +239,19 @@ function Home() {
           </div>
         </div>
 
-        <section class="py-24 px-[10%] bg-gradient-to-b from-slate-900 to-slate-950 text-white">
-          <h2 class="text-4xl font-bold mb-6">
+        <section className="bg-gradient-to-b from-slate-900 to-slate-950 text-white py-16 sm:py-20 px-4 sm:px-8 lg:px-[10%] text-center">
+          <h2 className="text-3xl sm:text-4xl font-bold mb-6">
             Start Your Journey with FreelanceHub
           </h2>
-          <p class="text-lg max-w-2xl mb-10 text-indigo-100">
+
+          <p className="text-base sm:text-lg max-w-2xl mx-auto mb-10 text-indigo-100">
             Join a growing community of clients and freelancers and turn your
             ideas into reality.
           </p>
+
           <a
             href="/auth"
-            class="inline-block px-10 py-4 bg-gradient-to-r from-blue-600 to-indigo-700 text-white font-bold rounded-full
-           hover:bg-gray-100 hover:shadow-[0_10px_30px_rgba(219,234,254,0.3)] shadow-md transition-all"
+            className="inline-block px-10 py-4 bg-gradient-to-r from-blue-600 to-indigo-700 font-bold rounded-full shadow-md hover:shadow-[0_10px_30px_rgba(219,234,254,0.3)] transition-all"
           >
             Get Started
           </a>

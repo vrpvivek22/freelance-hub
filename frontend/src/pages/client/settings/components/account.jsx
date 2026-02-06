@@ -19,13 +19,15 @@ export default function AccountManagement() {
 
   return (
     <div>
-      <h2 className="text-3xl font-bold px-6 py-4">Delete Account</h2>
-      <p className="text-gray-600 dark:text-gray-400 px-6 py-2">
+      <h2 className="text-2xl sm:text-3xl font-bold px-6 py-4">
+        Delete Account
+      </h2>
+      <p className="text-md sm:text-lg text-gray-600 dark:text-gray-400 px-6 py-2">
         Deleting your account is permanent and cannot be undone.
       </p>
       <button
         onClick={() => setOpenModal(true)}
-        className="bg-red-500 text-white px-4 py-2 mx-6 my-6 rounded hover:bg-red-600 cursor-pointer"
+        className="bg-red-500 text-white text-sm md:text-md px-3 sm:px-4 py-2 sm:py-2 font-semibold mx-6 my-6 rounded hover:bg-red-600 cursor-pointer"
       >
         Delete My Account
       </button>
@@ -49,7 +51,7 @@ export default function AccountManagement() {
 
               <button
                 onClick={handleDelete}
-                className="px-4 py-2 rounded bg-red-500 hover:bg-red-600 cursor-pointer text-white"
+                className="px-4 py-2 rounded bg-red-500 hover:bg-red-600 text-white"
               >
                 Yes, Delete
               </button>

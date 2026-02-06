@@ -39,7 +39,7 @@ import notFoundMiddleware from "./middlewares/not-found.js";
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-const allowedOrigins = ["https://freelance-hub-zfrl.vercel.app"];
+const allowedOrigins = ["http://localhost:5173", "https://freelance-hub-zfrl.vercel.app"];
 
 app.use(
   cors({

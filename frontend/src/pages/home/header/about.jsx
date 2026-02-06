@@ -1,164 +1,200 @@
 import { Link } from "react-router-dom";
-import { FaLaptopCode, FaUsers, FaGlobe, FaLaptop } from "react-icons/fa";
+import {
+  FaLaptopCode,
+  FaUsers,
+  FaGlobe,
+  FaLaptop,
+  FaBars,
+} from "react-icons/fa";
 import Footer from "../footer";
 import { useState } from "react";
 
 function Aboutus() {
   const [openMenu, setOpenMenu] = useState(false);
+  const [mobileMenu, setMobileMenu] = useState(false);
 
   return (
     <>
-      <div className=" absolute top-0 left-0 flex items-center px-25 w-full h-20 bg-white backdrop-blur-sm z-20 shadow-md">
-        <FaLaptop className="text-5xl mt-1 text-amber-500" />
-        <h1 className=" text-black text-3xl ml-2 mr-5 logo-text">
+      <div className="fixed top-0 left-0 w-full h-20 bg-white backdrop-blur-sm z-30 shadow-md flex items-center px-6 lg:px-12">
+        <FaLaptop className="text-4xl text-amber-500" />
+        <h1 className="text-black text-2xl ml-2 font-bold logo-text">
           FreelanceHub
         </h1>
+
         <div
-          className="relative cursor-pointer"
+          className="hidden lg:block relative ml-10"
           onMouseEnter={() => setOpenMenu(true)}
           onMouseLeave={() => setOpenMenu(false)}
         >
-          <p className=" hover:text-blue-600 mx-5 my-10 transition cursor-pointer">
+          <p className="hover:text-blue-600 cursor-pointer transition">
             Categories
           </p>
 
           {openMenu && (
-            <div className="absolute top-25 left-0 w-[800px] border flex flex-auto bg-white shadow-lg p-8 rounded-lg z-50">
-              <div className="grid grid-cols-4 gap-15">
-                <div>
-                  <h3 className="font-semibold mb-2 text-black">
-                    Design & Creative
-                  </h3>
-                  <ul className="space-y-1 text-gray-600 ">
-                    <li className="hover:text-blue-500">Logo Design</li>
-                    <li className="hover:text-blue-500">Graphic Design</li>
-                    <li className="hover:text-blue-500">Web Design</li>
-                    <li className="hover:text-blue-500">Illustration</li>
-                  </ul>
-                </div>
-
-                <div>
-                  <h3 className="font-semibold mb-2 text-black">Development</h3>
-                  <ul className="space-y-1 text-gray-600">
-                    <li className="hover:text-blue-500">Web Development</li>
-                    <li className="hover:text-blue-500">Mobile Apps</li>
-                    <li className="hover:text-blue-500">Python</li>
-                    <li className="hover:text-blue-500">AI Jobs</li>
-                  </ul>
-                </div>
-
-                <div>
-                  <h3 className="font-semibold mb-2 text-black">Writing</h3>
-                  <ul className="space-y-1 text-gray-600">
-                    <li className="hover:text-blue-500">Copywriting</li>
-                    <li className="hover:text-blue-500">Ghostwriting</li>
-                    <li className="hover:text-blue-500">Blog Writing</li>
-                    <li className="hover:text-blue-500">Editing</li>
-                  </ul>
-                </div>
-
-                <div>
-                  <h3 className="font-semibold mb-2 text-black">Marketing</h3>
-                  <ul className="space-y-1 text-gray-600">
-                    <li className="hover:text-blue-500">SEO</li>
-                    <li className="hover:text-blue-500">Google Ads</li>
-                    <li className="hover:text-blue-500">Email Marketing</li>
-                    <li className="hover:text-blue-500">Social Media</li>
-                  </ul>
-                </div>
+            <div className="absolute top-10 left-0 w-[800px] bg-white shadow-lg p-8 rounded-lg z-50">
+              <div className="grid grid-cols-4 gap-8">
+                {[
+                  {
+                    title: "Design & Creative",
+                    items: [
+                      "Logo Design",
+                      "Graphic Design",
+                      "Web Design",
+                      "Illustration",
+                    ],
+                  },
+                  {
+                    title: "Development",
+                    items: [
+                      "Web Development",
+                      "Mobile Apps",
+                      "Python",
+                      "AI Jobs",
+                    ],
+                  },
+                  {
+                    title: "Writing",
+                    items: [
+                      "Copywriting",
+                      "Ghostwriting",
+                      "Blog Writing",
+                      "Editing",
+                    ],
+                  },
+                  {
+                    title: "Marketing",
+                    items: [
+                      "SEO",
+                      "Google Ads",
+                      "Email Marketing",
+                      "Social Media",
+                    ],
+                  },
+                ].map((section) => (
+                  <div key={section.title}>
+                    <h3 className="font-semibold mb-2 text-black">
+                      {section.title}
+                    </h3>
+                    <ul className="space-y-1 text-gray-600">
+                      {section.items.map((item) => (
+                        <li
+                          key={item}
+                          className="hover:text-blue-500 cursor-pointer"
+                        >
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
               </div>
             </div>
           )}
         </div>
-        <div className=" absolute right-0 px-15">
-          <Link
-            to="/auth"
-            className="text-black cursor-pointer mx-5 hover:text-blue-600 transition"
-          >
+
+        <div className="hidden lg:flex ml-auto items-center space-x-6">
+          <Link to="/auth" className="hover:text-blue-600 transition">
             Log in
           </Link>
-
           <Link
             to="/auth"
-            className="text-white cursor-pointer px-4 py-2 bg-green-600 rounded mx-5 hover:bg-green-700 hover:border-none"
+            className="text-white px-4 py-2 bg-green-600 rounded hover:bg-green-700"
           >
             Sign Up
           </Link>
         </div>
+
+        <button
+          className="lg:hidden ml-auto text-2xl"
+          onClick={() => setMobileMenu(!mobileMenu)}
+        >
+          <FaBars />
+        </button>
       </div>
-      <div className="bg-gray-200 h-[0.4px] mt-20"></div>
-      <div className="bg-gradient-to-br from-blue-50 to-indigo-50 pt-10">
-        <div className="bg-blue-600 max-w-7xl mx-auto  rounded-3xl text-white py-20 px-6 text-center">
-          <h1 className="text-5xl font-bold mb-10">About FreelanceHub</h1>
-          <div className="max-w-6xl m-auto">
-            <p className="text-lg text-white leading-relaxed mb-4">
+
+      {mobileMenu && (
+        <div className="fixed top-20 left-0 w-full bg-white shadow-lg z-20 p-6 space-y-4 lg:hidden">
+          <Link to="/auth" className="block hover:text-blue-600">
+            Log in
+          </Link>
+          <Link to="/auth" className="block hover:text-blue-600">
+            Sign Up
+          </Link>
+        </div>
+      )}
+
+      <div className="mt-20" />
+
+      <div className="bg-gradient-to-br from-blue-50 to-indigo-50 py-16 px-4">
+        <div className="bg-blue-600 max-w-7xl mx-auto rounded-3xl text-white py-16 px-6 text-center">
+          <h1 className="text-4xl sm:text-5xl font-bold mb-8">
+            About FreelanceHub
+          </h1>
+
+          <div className="max-w-5xl mx-auto space-y-4 text-lg">
+            <p>
               FreelanceHub is your ultimate platform for connecting talented
-              freelancers with clients looking for quality work. Whether you’re
-              a designer, developer, writer, or digital marketer, we make it
-              easy to showcase your skills and find projects that match your
-              expertise.
+              freelancers with clients looking for quality work.
             </p>
-            <p className="text-lg text-white leading-relaxed mb-4">
-              Our mission is to empower freelancers to grow their careers while
-              helping businesses access skilled professionals on demand. We
-              believe in creating a community built on trust, transparency, and
-              mutual success.
+            <p>
+              Our mission is to empower freelancers while helping businesses
+              access skilled professionals on demand.
             </p>
-            <p className="text-lg text-white leading-relaxed mb-15">
-              At FreelanceHub, every project matters. Our platform is designed
-              to make collaboration seamless, payments secure, and communication
-              effortless. Join thousands of freelancers and clients who trust us
-              to bring their ideas to life.
+            <p>
+              At FreelanceHub, every project matters. Collaboration is seamless,
+              payments are secure, and communication is effortless.
             </p>
           </div>
-          <div className="mt-8">
+
+          <div className="mt-10 flex justify-center gap-4 flex-wrap">
             <Link
               to="/auth"
-              className="bg-white text-blue-600 font-semibold px-6 py-3 rounded shadow cursor-pointer hover:text-white hover:bg-green-500 mr-4"
+              className="bg-white text-blue-600 font-semibold px-6 py-3 rounded hover:bg-green-500 hover:text-white"
             >
               Find Jobs
             </Link>
             <Link
               to="/auth"
-              className="bg-white text-blue-600 font-semibold px-6 py-3 rounded shadow cursor-pointer hover:text-white hover:bg-green-500 transition-2s"
+              className="bg-white text-blue-600 font-semibold px-6 py-3 rounded hover:bg-green-500 hover:text-white"
             >
               Post a Project
             </Link>
           </div>
         </div>
 
-        <div className="max-w-6xl mx-auto py-16 px-6 grid md:grid-cols-3 gap-10 text-center">
-          <div className="bg-white p-6 rounded-lg hover:shadow-xl shadow-sm transition">
+        <div className="max-w-6xl mx-auto py-16 px-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 text-center">
+          <div className="bg-white p-6 rounded-lg shadow-sm hover:shadow-xl transition">
             <FaLaptopCode className="text-blue-600 text-4xl mx-auto mb-4" />
             <h3 className="text-2xl font-bold mb-2">Quality Projects</h3>
             <p className="text-gray-700">
-              Find projects that match your skills and get paid fairly for your
-              work.
+              Find projects that match your skills and get paid fairly.
             </p>
           </div>
-          <div className="bg-white p-6 rounded-lg hover:shadow-xl shadow-sm transition">
+
+          <div className="bg-white p-6 rounded-lg shadow-sm hover:shadow-xl transition">
             <FaUsers className="text-blue-600 text-4xl mx-auto mb-4" />
             <h3 className="text-2xl font-bold mb-2">Trusted Community</h3>
             <p className="text-gray-700">
-              Join a growing network of freelancers and clients built on trust
-              and collaboration.
+              A growing network built on trust and collaboration.
             </p>
           </div>
-          <div className="bg-white p-6 rounded-lg hover:shadow-xl shadow-sm transition">
+
+          <div className="bg-white p-6 rounded-lg shadow-sm hover:shadow-xl transition">
             <FaGlobe className="text-blue-600 text-4xl mx-auto mb-4" />
             <h3 className="text-2xl font-bold mb-2">Global Opportunities</h3>
             <p className="text-gray-700">
-              Work on projects from around the world and expand your
-              professional network.
+              Work with clients from around the world.
             </p>
           </div>
         </div>
       </div>
+
       <div className="bg-white py-12 px-6 text-center">
         <p className="text-xl font-semibold text-gray-800 max-w-2xl mx-auto">
           FreelanceHub – Connecting Talent, Creating Opportunities.
         </p>
       </div>
+
       <Footer />
     </>
   );
