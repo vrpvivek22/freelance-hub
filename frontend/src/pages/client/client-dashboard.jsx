@@ -77,7 +77,7 @@ function ClientDashboard() {
     <>
       <div className="flex flex-col flex-auto">
         <div className="flex flex-auto flex-col max-w-full">
-          <div className="flex flex-row lg:flex-row items-center justify-between lg:justify-center gap-2 lg:gap-9 bg-gradient-to-b from-blue-600 to-indigo-700 sm:min-h-24 min-h-14 shadow-xl px-4 py-3">
+          <div className="flex flex-row lg:flex-row items-center justify-between lg:justify-center gap-2 lg:gap-8 bg-gradient-to-b from-blue-600 to-indigo-700 sm:min-h-24 min-h-14 shadow-xl px-4 py-3">
             <div className="flex flex-row items-center">
               <FaLaptop className="text-3xl sm:text-4xl mt-0.5 text-amber-500" />
               <p className="text-white ml-2 text-md sm:text-2xl logo-text">

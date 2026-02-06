@@ -44,7 +44,7 @@ function ClientHeader() {
     <>
       <div className="flex flex-col flex-auto">
         <div className="flex flex-auto flex-col max-w-full">
-          <div className="flex flex-row lg:flex-row flex-auto z-100 items-center justify-center gap-4 lg:gap-9 sm:min-h-24 min-h-14 bg-gradient-to-b from-blue-600 to-indigo-700 shadow-xl px-4 py-3">
+          <div className="flex flex-row lg:flex-row flex-auto z-100 items-center justify-center gap-4 lg:gap-8 sm:min-h-24 min-h-14 bg-gradient-to-b from-blue-600 to-indigo-700 shadow-xl px-4 py-3">
             <div className="flex flex-row items-center">
               <FaLaptop className="text-3xl sm:text-4xl mt-0.5 text-amber-500" />
               <p className="text-white ml-2 text-md sm:text-2xl logo-text">
@@ -61,7 +61,7 @@ function ClientHeader() {
             >
               <div className="flex flex-row h-10 w-full sm:w-161 relative">
                 <input
-                  className="bg-white sm:h-10 h-8 w-full sm:w-135 mt-1 rounded-l-full pl-4 pr-2 pb-1 placeholder:text-gray-500 focus:outline-none"
+                  className="bg-white sm:h-10 h-8 w-full sm:w-178 rounded-l-full pl-4 pr-2 pb-1 placeholder:text-gray-500 focus:outline-none"
                   type="search"
                   onChange={(e) => setSearch(e.target.value)}
                   placeholder="Search Talents"
